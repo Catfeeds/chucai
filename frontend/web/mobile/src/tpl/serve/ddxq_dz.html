@@ -1,0 +1,113 @@
+<!--首页体检商城-订单详情-->
+<div ng-controller="serveDetailDzCtrl">
+    <div class="y-title">
+        <span>确认订单</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-serve-xq y-outpatient">
+            <div class="y-xq-address" ng-click="goChooseAddress()" ng-if="!hasAddress" style="margin-top: 1.45rem">
+                <div class="y-xq-name">{{consignee}}</div>
+                <div class="y-xq-add">
+                    <p>{{tel}}</p>
+                    <p>{{fullAddress}}</p>
+                </div>
+                <div class="y-xq-arrow"></div>
+            </div>
+            <div class="y-xq-address" ng-click="goChooseAddress()" ng-if="hasAddress">
+                <div class="y-xq-add active">
+                    请选择地址
+                </div>
+                <div class="y-xq-arrow"></div>
+            </div>
+            <div class="y-o-msg">
+                <div class="y-xq-item" ui-sref="tcxq({listId:item.package_id,serveFlag:true})">
+                    <div class="y-xq-title">慈铭体验</div>
+                    <div class="y-xq-con">
+                        <div class="y-xq-pic">
+                            <img ng-src="{{item.package.package_img}}" alt="">
+                        </div>
+                        <div class="y-xq-text">
+                            <p>{{item.package.package_name}}</p>
+                            <p>实付款：<span>￥{{item.package.present_price}}</span></p>
+                            <div class="y-xq-count">x1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="y-xq-list-1">
+                <div class="y-xq-item">
+                    <div class="y-key">选择时间</div>
+                    <div class="y-value" ng-click="goChooseData()">{{data}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">选择体检人</div>
+                    <div class="y-value" ng-click="goChooseFamily()">{{familyName}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医服务</div>
+                    <div class="y-value" ng-click="chooseGuideDoctor()">{{guideName}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">给卖家留言</div>
+                    <textarea style="text-align: right" placeholder="选填(最多30个字)" id="text_msg" ng-change="saveMsg()" ng-model="textMsg"></textarea>
+                </div>
+                <div class="y-xq-item" ui-sref="invoice">
+                    <div class="y-key">发票信息</div>
+                    <div class="y-value">{{invoice}}</div>
+                </div>
+            </div>
+            <div class="y-xq-list-2">
+                <div class="y-xq-item">
+                    <div class="y-key">商品金额</div>
+                    <div class="y-value">￥{{retainage}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">运费</div>
+                    <div class="y-value">￥{{fare}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医</div>
+                    <div class="y-value">￥{{guidePrice}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">优惠券</div>
+                    <div class="y-value">-0.00</div>
+                </div>
+            </div>
+            <div class="y-mz-ok">
+                <span>合计：￥{{totalPrice}}</span>
+                <span ng-click="goPay()">立即支付</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="y-mask" ng-class="xQIsShow==true?'active':''"></div>
+
+    <div class="y-xq-cancel" ng-class="xQIsShow==true?'active':''">
+        <div class="y-xq-title">是否确定取消订单</div>
+        <div class="y-xq-choose">
+            <span ng-click="showChangeXq(false)">取消</span>
+            <span ng-click="orderDel()">确定</span>
+        </div>
+    </div>
+
+
+    <div class="y-mask" ng-class="showMask==true?'active':''"></div>
+    <div class="mask" ng-if="showMask"></div>
+    <!--选择导医-->
+    <div class="y-guide-doctor" ng-class="showGuideDoctor==true?'active':''">
+        <div class="y-g-d-list">
+            <div class="y-item" ng-repeat="item in guideDoctor" ng-click="isGuideDoctor($index)">
+                <span>{{item.guide_name}}</span>
+                <span ng-show="item.remark!=''">({{item.remark}})</span>
+                <span>￥{{item.price}}</span>
+            </div>
+        </div>
+        <div class="y-g-d-choose">
+            <span ng-click="closeGuideDoctor()">取消</span>
+            <span ng-click="okGuideDoctor()">确定</span>
+        </div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

@@ -1,0 +1,16 @@
+<div class="y-title" ng-controller="serveCtrl">
+    <span>我的服务</span>
+    <div class="y-alarm" ng-click="goMsg('serve')">
+        <div class="y-alarm-msg" ng-if="isRead"></div>
+    </div>
+</div>
+<div class="y-serve-nav">
+    <span ui-sref=".all" ng-class="baseOption.serveIsShow==1?'active':''" >全部</span>
+    <span ui-sref=".dfk" ng-class="baseOption.serveIsShow==2?'active':''" >待付款</span>
+    <span ui-sref=".yfk" ng-class="baseOption.serveIsShow==3?'active':''" >已付款</span>
+    <span ui-sref=".ywc" ng-class="baseOption.serveIsShow==4?'active':''" >已完成</span>
+    <span ui-sref=".tk" ng-class="baseOption.serveIsShow==5?'active':''" >退款</span>
+</div>
+<div class="scroll-content pie-has-title">
+    <ui-view class="fade-in-right-big smooth h-full"></ui-view>
+</div>

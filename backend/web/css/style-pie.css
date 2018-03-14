@@ -1,0 +1,86 @@
+.b-font-12 {
+  font-size: 12px; }
+  [data-dpr="2"] .b-font-12 {
+    font-size: 24px; }
+  [data-dpr="3"] .b-font-12 {
+    font-size: 36px; }
+
+.b-font-13 {
+  font-size: 13px; }
+  [data-dpr="2"] .b-font-13 {
+    font-size: 26px; }
+  [data-dpr="3"] .b-font-13 {
+    font-size: 39px; }
+
+.b-font-14 {
+  font-size: 14px; }
+  [data-dpr="2"] .b-font-14 {
+    font-size: 28px; }
+  [data-dpr="3"] .b-font-14 {
+    font-size: 42px; }
+
+.b-font-15 {
+  font-size: 15px; }
+  [data-dpr="2"] .b-font-15 {
+    font-size: 30px; }
+  [data-dpr="3"] .b-font-15 {
+    font-size: 45px; }
+
+.b-font-16 {
+  font-size: 16px; }
+  [data-dpr="2"] .b-font-16 {
+    font-size: 32px; }
+  [data-dpr="3"] .b-font-16 {
+    font-size: 48px; }
+
+.b-font-17 {
+  font-size: 17px; }
+  [data-dpr="2"] .b-font-17 {
+    font-size: 34px; }
+  [data-dpr="3"] .b-font-17 {
+    font-size: 51px; }
+
+.b-font-18 {
+  font-size: 18px; }
+  [data-dpr="2"] .b-font-18 {
+    font-size: 36px; }
+  [data-dpr="3"] .b-font-18 {
+    font-size: 54px; }
+
+.b-content {
+  width: 100vw; }
+
+.b-footer {
+  width: 100vw;
+  height: 2.09067rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fcfcfc;
+  display: flex; }
+  .b-footer .b-item {
+    height: 100%;
+    flex: 1;
+    text-align: center; }
+    .b-footer .b-item .b-icon {
+      display: inline-block;
+      width: 0.93867rem;
+      height: 0.85333rem;
+      margin-top: 0.21333rem; }
+      .b-footer .b-item .b-icon img {
+        height: 100%; }
+    .b-footer .b-item p {
+      color: #9b9b9b;
+      font-size: 12px;
+      line-height: 0.832rem; }
+      [data-dpr="2"] .b-footer .b-item p {
+        font-size: 24px; }
+      [data-dpr="3"] .b-footer .b-item p {
+        font-size: 36px; }
+  .b-footer .b-item.ac p {
+    color: #58c0cd; }
+
+ion-content.has-b-footer {
+  bottom: 2.09067rem; }
+
+/*# sourceMappingURL=style-pie.css.map */

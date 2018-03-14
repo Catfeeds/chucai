@@ -1,0 +1,592 @@
+@import "base";
+//底部公共部分
+.y-footer{
+  border-top: 1px solid #eee;
+}
+html{
+  background-color: bgColor();
+}
+//健康说
+.y-title{
+  position: relative;
+  text-align: center;
+  height:px2rem(66);
+  line-height: px2rem(50);
+  color: textGray();
+  background-color: bgWhite();
+  @include sefFont(18);
+  .y-alarm{
+    position: absolute;
+    width: px2rem(50);
+    height: px2rem(60);
+    right: px2rem(15);
+    top: 0;
+    background: url("../img/msg.png") no-repeat center center;
+    background-size: 60%;
+  }
+  .y-back{
+    position: absolute;
+    width: px2rem(50);
+    height: px2rem(50);
+    top: 0;
+    left: px2rem(15);
+    background: url("../img/serve/back.png") no-repeat center left;
+    background-size: 40%;
+  }
+}
+.y-detail-con{
+  border-top: px2rem(2) solid #ccc;
+  padding: px2rem(28) px2rem(15) px2rem(50) px2rem(15);
+  background-color: bgWhite();
+  .y-detail-title{
+    padding-top: px2rem(30);
+    color: conTxtGray();
+    @include sefFont(20)
+  }
+  .y-detail-data{
+    color: cGray();
+    @include sefFont(14);
+    margin-top: px2rem(24);
+  }
+  .y-detail-text{
+    margin-top: px2rem(30);
+    color: conTxtGray();
+    @include sefFont(14);
+    text-indent: 2em;
+    line-height: px2rem(50);
+  }
+}
+.y-nav{
+  width: 100%;
+  height: px2rem(100);
+  line-height: px2rem(100);
+  padding-left: px2rem(15);
+  white-space: nowrap;
+  overflow-x: scroll;
+  border-bottom: px2rem(1) solid #ccc;
+  background-color: bgWhite();
+  span{
+    display: inline-block;
+    color: textGray();
+    @include sefFont(15);
+    margin-right: px2rem(55);
+    &.active{
+      border-bottom: 1px solid cLBlue();
+    }
+  }
+}
+.y-tj-con{
+  padding-bottom: px2rem(28);
+  background-color: bgColor();
+}
+.y-three{
+  padding:px2rem(26) px2rem(15);
+  background-color: #fff;
+  .y-tj-title{
+    height: px2rem(120);
+    color: conTxtGray();
+    line-height: px2rem(40);
+    @include sefFont(15);
+    font-weight: bold;
+  }
+  .y-tj-pics{
+    display: flex;
+    padding: 0 px2rem(15);
+    .items{
+      flex: 1;
+      img{
+        width: 100%;
+      }
+    }
+    .items:nth-child(1),
+    .items:nth-child(2){
+      margin-right: px2rem(10);
+    }
+  }
+  .y-data{
+    @include sefFont(12);
+    color: cGray();
+    margin: px2rem(20) 0;
+  }
+}
+.y-news-list{
+  .item{
+    position: relative;
+    height: px2rem(190);
+    border-top: px2rem(1) solid #eee;
+    display: flex;
+    padding: 0;
+    background-color: #fff;
+    .text{
+      padding: px2rem(30) px2rem(15);
+      width: 60%;
+      .title{
+        color: conTxtGray();
+        width: 100%;
+        line-height: px2rem(40);
+        @include sefFont(15);
+        white-space: normal;
+      }
+      .data{
+        margin-top: px2rem(30);
+        color: cGray();
+        @include sefFont(12);
+        bottom: px2rem(35);
+        left: px2rem(15);
+      }
+    }
+    .pic{
+      width: 40%;
+      padding: px2rem(20);
+      img{
+        float:right;
+        height: 100%;
+      }
+    }
+  }
+}
+//我的服务
+.y-serve-nav{
+  height: px2rem(100);
+  line-height: px2rem(100);
+  padding-left: px2rem(15);
+  display: flex;
+  border-bottom: px2rem(1) solid #eee;
+  background-color: bgWhite();
+  span{
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+    color: textGray();
+    @include sefFont(15);
+    margin-right: px2rem(55);
+    &.active{
+      border-bottom: 1px solid cLBlue();
+    }
+  }
+}
+.y-serve-all,
+.y-serve-dfk,
+.y-serve-yfk,
+.y-serve-ywc,
+.y-serve-tk{
+  padding-bottom: px2rem(40);
+  background-color: bgColor();
+  .serve-list{
+    background-color: #fff;
+    .y-item{
+      padding:px2rem(24) px2rem(15);
+      border-bottom: px2rem(10) solid bgColor();
+      .title{
+        overflow: hidden;
+        .left{
+          float: left;
+          span{
+            @include sefFont(12);
+            color: conTxtGray();
+          }
+        }
+        .right{
+          float: right;
+          span{
+            @include sefFont(12);
+            color: cLBlue();
+          }
+        }
+      }
+      .con{
+        padding: px2rem(15) 0;
+        margin-top: px2rem(24);
+        display: flex;
+        height: px2rem(190);
+        border-top: px2rem(2) solid #eee;
+        border-bottom: px2rem(2) solid #eee;
+        .pic{
+          flex: 3;
+          width: 40%;
+          img{
+            height: 100%;
+          }
+        }
+        .text{
+          position: relative;
+          flex: 5;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: px2rem(10) px2rem(15);
+          .title{
+            color:conTxtGray();
+            @include sefFont(15)
+          }
+          .pay{
+            color: payRed();
+            @include sefFont(14)
+          }
+          .count{
+            position: absolute;
+            width: px2rem(50);
+            height:px2rem(50);
+            line-height: px2rem(50);
+            text-align: center;
+            right: 0;
+            bottom: 0;
+            span{
+              @include sefFont(14);
+              color: conTxtGray();
+            }
+          }
+        }
+      }
+      .change{
+        height: px2rem(100);
+        text-align: right;
+        overflow: hidden;
+        .change-detail{
+          position: relative;
+          float: left;
+          height: px2rem(60);
+          margin-top: px2rem(30);
+          padding-left: px2rem(15);
+          .one{
+            display: flex;
+            margin-bottom: px2rem(15);
+            span{
+              display: inline-block;
+              margin-right: px2rem(20);
+              @include sefFont(14)
+            }
+            span:nth-child(1){
+              color: conTxtGray();
+            }
+            span:nth-child(2){
+              color: payRed();
+            }
+          }
+          .two{
+            display: flex;
+            span{
+              display: inline-block;
+              margin-right: px2rem(20);
+              @include sefFont(14)
+            }
+            span:nth-child(1){
+              color: conTxtGray();
+            }
+            span:nth-child(2){
+              color: payRed();
+            }
+          }
+        }
+        .pay{
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          height: px2rem(60);
+          margin-top: px2rem(30);
+          left: 50%;
+          margin-left: px2rem(30);
+          span{
+            display: block;
+            @include sefFont(14)
+          }
+          span:nth-child(1){
+            color: conTxtGray();
+            margin-bottom: px2rem(15);
+          }
+          span:nth-child(2){
+            color: cLBlue();
+            margin-bottom: px2rem(15);
+          }
+        }
+        .change-change{
+          height: px2rem(60);
+          line-height: px2rem(55);
+          padding: 0 px2rem(15);
+          text-align: center;
+          color: cLBlue();
+          border: px2rem(2) solid cLBlue();
+          border-top-left-radius: px2rem(20);
+          border-bottom-left-radius: px2rem(20);
+          border-bottom-right-radius: px2rem(20);
+          border-top-right-radius: px2rem(20);
+          float: right;
+          margin-top: px2rem(30);
+        }
+        .change-change1{
+          color: cGray();
+          border: px2rem(2) solid cGray();
+          margin-right: px2rem(15);
+        }
+      }
+      .yfk-change{
+        height: px2rem(200);
+        .change-change,
+        .change-change1{
+          margin-top: px2rem(130);
+        }
+      }
+    }
+  }
+}
+//我的服务-评价
+.y-pj{
+  .y-title{
+    background-color: bgWhite();
+    position: relative;
+    text-align: center;
+    height:px2rem(50);
+    line-height: px2rem(50);
+    color: textGray();
+    @include sefFont(18);
+    .y-back{
+      position: absolute;
+      width:px2rem(50);
+      height: px2rem(50);
+      background: url("../img/serve/back.png") no-repeat center center;
+      left: 0;
+      top: 0;
+      background-size: 40%;
+    }
+  }
+  .y-pj-con{
+    border-top: px2rem(1) solid #ccc;
+    padding: px2rem(46) px2rem(15);
+    background-color: bgWhite();
+    .y-title1{
+      @include sefFont(15);
+      color: cLBlue();
+      text-align: center;
+    }
+    .y-star{
+      display: flex;
+      margin-top: px2rem(54);
+      .y-star-name{
+        display: flex;
+        flex: 5;
+        flex-direction: column;
+        text-align: right;
+        span{
+          display: block;
+          @include sefFont(14);
+          color:conTxtGray();
+          line-height: 28px;
+        }
+      }
+      .y-star-count{
+        display: flex;
+        flex: 6;
+        flex-direction: column;
+        text-align: left;
+        padding-left: px2rem(40);
+        span{
+          display: block;
+          ul{
+            overflow: hidden;
+            li{
+              width: 30px;
+              height: 28px;
+              background: url("../img/serve/star.png") no-repeat center center;
+              list-style: none;
+              float: left;
+              background-size: 70%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+button{
+  text-align: center;
+  @include sefFont(16);
+  color: bgWhite();
+  background-color: cLBlue();
+  height: px2rem(100);
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: px2rem(-700);
+  border-radius: px2rem(10);
+}
+//个人中心
+.y-mine{
+  background-color: bgColor();
+  .y-title{
+    background-color: bgWhite();
+  }
+  .y-user{
+    background-color: bgWhite();
+    height: px2rem(290);
+    display: flex;
+    padding: px2rem(30);
+    justify-content: space-between;
+    .y-user-detail{
+      padding-top: px2rem(15);
+      .y-name{
+        span:nth-child(1){
+          display: inline-block;
+          @include sefFont(25);
+          color: conTxtGray();
+          font-weight: bold;
+        }
+        span:nth-child(2){
+          display: inline-block;
+          @include sefFont(15);
+          color: conTxtGray();
+        }
+      }
+      .y-sex{
+        @include sefFont(14);
+        color: textGray();
+        margin-top: px2rem(30);
+      }
+      .y-jf{
+        @include sefFont(14);
+        color: textGray();
+        margin-top: px2rem(70);
+        span{
+          color:cLBlue()
+        }
+      }
+    }
+    .y-user-pic{
+      display: flex;
+      flex-direction: column;
+      img{
+        width: px2rem(164);
+      }
+      span{
+        margin-top: px2rem(30);
+        @include sefFont(14);
+        text-align: center;
+        color:cLBlue()
+      }
+    }
+  }
+  .y-lists{
+    height: px2rem(500);
+    margin-top: px2rem(15);
+    .y-lists-item{
+      background-color: bgWhite();
+      padding-left: px2rem(15);
+      display: flex;
+      justify-content: space-between;
+      height: px2rem(100);
+      line-height: px2rem(100);
+      margin-top: px2rem(2);
+      .y-left{
+        display: flex;
+        .y-img{
+          img{
+            position: relative;
+            height: px2rem(40);
+            width: px2rem(40);
+            margin-top: px2rem(30);
+          }
+        }
+        .y-img-txt{
+          margin-left: px2rem(20);
+          @include sefFont(15);
+          color: conTxtGray();
+        }
+      }
+      .y-right{
+        width: px2rem(50);
+        height: px2rem(50);
+        background: url("../img/mine/right.png") no-repeat center center;
+        background-size: 40%;
+        margin-top: px2rem(25);
+        margin-right: px2rem(15);
+      }
+    }
+  }
+}
+//个人中心-设置
+.y-mine-setting{
+  .y-setting-lists{
+    height: px2rem(400);
+    .y-items{
+      padding-left: px2rem(20);
+      display: flex;
+      justify-content: space-between;
+      height: px2rem(100);
+      line-height: px2rem(100);
+      margin-top: px2rem(2);
+      background-color: bgWhite();
+      .y-left{
+        @include sefFont(15);
+        color: conTxtGray();
+      }
+      .y-right{
+        width: px2rem(50);
+        height: px2rem(50);
+        background: url("../img/mine/right.png") no-repeat center center;
+        background-size: 40%;
+        margin-top: px2rem(25);
+        margin-right: px2rem(15);
+      }
+      .y-hc{
+        padding-right: px2rem(30);
+        @include sefFont(15);
+        color: cGray();
+      }
+    }
+  }
+  button{
+    text-align: center;
+    @include sefFont(16);
+    color: bgWhite();
+    background-color: cLBlue();
+    height: px2rem(100);
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    bottom:px2rem(-200);
+    border-radius: px2rem(10);
+  }
+}
+//修改密码
+.y-setting-password{
+  .y-setting-lists{
+    height: px2rem(300);
+    .y-items{
+      justify-content: flex-start;
+      input{
+        position: relative;
+        height: px2rem(50);
+        top: 50%;
+        margin-top: px2rem(-28);
+        padding-left: px2rem(30);
+      }
+    }
+  }
+  p{
+    @include sefFont(12);
+    text-align: center;
+    color: cGray();
+    margin-top: px2rem(40);
+  }
+}
+//意见反馈
+.y-setting-yj{
+  textarea{
+    margin-top: px2rem(2);
+    padding: px2rem(30);
+    resize: none;
+    width: 100%;
+    height: px2rem(200);
+    @include sefFont(15);
+    color: cGray();
+  }
+  input{
+    width: 100%;
+    height: px2rem(100);
+    line-height: px2rem(100);
+    padding-left: px2rem(30);
+    @include sefFont(15);
+    margin-top: px2rem(2);
+    color: cGray();
+  }
+}
+

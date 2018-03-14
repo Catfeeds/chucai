@@ -1,0 +1,28 @@
+<div ng-controller="homeTypeDetaillCtrl">
+    <div class="y-title">
+        <p>{{title}}</p>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-tjzx y-tjsc y-type_detail">
+            <div class="y-t-list1">
+                <!--<div class="y-t-l-title">
+                    <span><b>慈铭体检</b></span>
+                </div>-->
+                <div class="y-t-l-item" ng-repeat="item in typeList" ng-click="goTcxq(item.id)">
+                    <div class="y-t-l-text">
+                        <span>{{item.package_name}}</span>
+                        <span>{{item.present_price}}</span>
+                        <span>{{item.original_price}}</span>
+                    </div>
+                    <div class="y-t-l-pic">
+                        <img ng-src="{{item.package_img}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="y-t-more" ng-click="getMore()" ng-if="typeList.length < total_pages">
+                <h6>点击查看更多</h6>
+            </div>
+        </div>
+    </div>
+</div>

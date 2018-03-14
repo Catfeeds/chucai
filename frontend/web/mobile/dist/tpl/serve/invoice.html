@@ -1,0 +1,29 @@
+<div ng-controller="invoiceCtrl" class="y-invoice">
+    <div class="y-title">
+        <span>发票信息</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content" class="y-invoice">
+        <div class="y-i-flag">
+            <span>是否需要发票</span>
+            <span ng-click="invoiceFlag()"></span>
+        </div>
+        <div class="y-i-title">
+            <span>发票抬头</span>
+            <input type="text" placeholder="请输入个人/单位名称" ng-model="con" ng-change="invoiceCon(con)" id="y-header">
+        </div>
+        <div class="y-i-con">
+            <span>发票内容：服务费</span>
+            <span>发票类型：纸质发票</span>
+            <span>快递费：12元</span>
+        </div>
+        <div class="y-i-msg">
+            <div class="y-i-msg-title">发票须知</div>
+            <div class="y-i-msg-con">
+                <span>1、发票金额不含发票的快递费。</span>
+                <span>2、发票类型统一为纸质类型。</span>
+                <span>3、发票只出具普通增值税发票。</span>
+            </div>
+        </div>
+    </div>
+</div>

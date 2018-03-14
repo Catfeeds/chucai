@@ -1,0 +1,36 @@
+<div ng-controller="onlineQuestionCtrl">
+    <div class="y-title">
+        <span>在线咨询</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-online">
+            <div class="y-o-common">
+                <div class="y-o-c-sex">
+                    <span>性别：</span>
+                    <span ng-class="showChoose==1?'active':''" ng-click="setChoose(1)">男</span>
+                    <span ng-class="showChoose==2?'active':''" ng-click="setChoose(2)">女</span>
+                </div>
+                <div class="y-o-c-age">
+                    <span>年龄：</span>
+                    <input type="number" placeholder="输入年龄">
+                </div>
+            </div>
+            <div class="y-o-detail">
+                <div class="y-o-d-title">病情描述</div>
+                <textarea placeholder="请详细描述您的病情"></textarea>
+                <div class="y-o-d-submit">上传病历资料和病情报告</div>
+                <div class="y-o-d-pic">
+                    <img ng-src="{{item}}" ng-repeat="item in data.list">
+                    <img src="img/home/three.png"
+                         ng-show="data.list.length<3"
+                         ng-change="upload(data.img)" ngf-select
+                         ng-model="data.img" name="file"
+                         ngf-accept="'image/jpg,image/jpeg,image/png,image/bmp'">
+                </div>
+            </div>
+        </div>
+        <div class="y-o-ok" ng-click="submitQuestion()">提问</div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

@@ -1,0 +1,55 @@
+<div ng-controller="homeTcdzCtrl">
+    <div class="y-title">
+        <span>健康问卷调查</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-hospital-items y-gxh y-g-question">
+            <!--问卷3-->
+            <div class="y-g-1">
+                <div class="y-g-1-lists">
+                    <div class="y-g-1-title">
+                        <span>一、老年人健康问卷（55岁以上），不是请跳过</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>1、您觉得自己的身体状况如何</span>
+                        <span ng-click="quesData.ques20.show=true" ng-bind="quesData.ques20.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>2、今年您看过几次医生？</span>
+                        <span ng-click="quesData.ques21.show=true" ng-bind="quesData.ques21.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-sex y-que">
+                        <span>3、今年您去医院检查过身体吗（体检）？</span>
+                        <span ng-click="option.exam='是'" ng-class="option.exam=='是'?'active':''">是</span>
+                        <span ng-click="option.exam='否'" ng-class="option.exam=='否'?'active':''">否</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>4、您的身体有没有如下状况？</span>
+                        <span ng-click="quesData.ques22.show=true" ng-bind="quesData.ques22.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age y-que">
+                        <span>5、在过去的三个月内您做以下哪些活动有困难？</span>
+                        <span ng-click="quesData.ques23.show=true" ng-bind="quesData.ques23.result" style="line-height: 5rem">选择</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--遮罩层-->
+    <div class="y-mask" ng-class="maskShow==true?'active':''"></div>
+    <!--身体状况-->
+    <pie-radio my-data="quesData.ques20" ng-class="quesData.ques20.show?'active':''"></pie-radio>
+    <!--看医生次数-->
+    <pie-radio my-data="quesData.ques21" ng-class="quesData.ques21.show?'active':''"></pie-radio>
+    <!--以下症状2-->
+    <pie-checkbox1 my-data="quesData.ques22" ng-class="quesData.ques22.show?'active':''"></pie-checkbox1>
+    <!--有困难2-->
+    <pie-checkbox1 my-data="quesData.ques23" ng-class="quesData.ques23.show?'active':''"></pie-checkbox1>
+
+    <div class="y-g-1-ok y-g-1-ok1">
+        <span  ng-click="goTcdz5(0)">不是，跳过</span>
+        <span  ng-click="goTcdz5(1)">保存，下一步</span>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

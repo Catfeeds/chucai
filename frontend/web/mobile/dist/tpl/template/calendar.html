@@ -1,0 +1,55 @@
+<div class="pie-inner">
+    <div class="pie-top">
+        <div class="pie-main">
+            <div class="pie-yy">
+                <div class="pie-title">
+                    <span class="pic">
+                        <img
+                            ng-show="showList.showPreYear"
+                            ng-click="preYear()"
+                            src="img/home/left.png">
+                    </span>
+                    {{showList.year}}年
+                    <span class="pic">
+                        <img
+                            ng-show="showList.showNextYear"
+                            ng-click="nextYear()"
+                            src="img/home/right.png">
+                    </span>
+                </div>
+            </div>
+            <div class="pie-time">{{showList.title}}</div>
+            <div class="pie-mm">
+                <div class="pie-title">
+                    <span class="pic">
+                        <img
+                            ng-show="showList.showPreMonth"
+                            ng-click="preMonth()"
+                            src="img/home/left.png">
+                    </span>
+                    {{showList.month}}月
+                    <span class="pic">
+                        <img
+                            ng-show="showList.showNextMonth"
+                            ng-click="nextMonth()"
+                            src="img/home/right.png">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <ul class="pie-week">
+            <li>日</li>
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+        </ul>
+    </div>
+    <ul class="pie-day">
+        <li ng-repeat="item in showList.list" class="{{item.ac}}" ng-click="setDate(item,$index)">
+            <div class="inner">{{item.number}}</div>
+        </li>
+    </ul>
+</div>

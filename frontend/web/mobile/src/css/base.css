@@ -1,0 +1,34 @@
+/*@function px2rem($px){
+	@return $px*8/375 + rem;
+}*/
+/*@mixin sefFont($px){
+	font-size: $px+px ;
+	[data-dpr="2"] &{
+		font-size: 2*$px+px;
+	}
+	[data-dpr="3"] &{
+		font-size: 3*$px+px;
+	}
+}*/
+.b-font-12 {
+  font-size: 0.6rem; }
+
+.b-font-13 {
+  font-size: 0.65rem; }
+
+.b-font-14 {
+  font-size: 0.7rem; }
+
+.b-font-15 {
+  font-size: 0.75rem; }
+
+.b-font-16 {
+  font-size: 0.8rem; }
+
+.b-font-17 {
+  font-size: 0.85rem; }
+
+.b-font-18 {
+  font-size: 0.9rem; }
+
+/*# sourceMappingURL=base.css.map */

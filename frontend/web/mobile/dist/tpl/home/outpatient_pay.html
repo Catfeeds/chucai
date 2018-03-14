@@ -1,0 +1,83 @@
+<div ng-controller="homeOutpatientPayCtrl">
+    <div class="y-title">
+        <span>确认订单</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-serve-xq y-outpatient">
+            <div class="y-o-title" ng-click="goChooseAddress()" ng-if="!hasAddress">
+                <div class="y-o-t-name">{{consignee}}</div>
+                <div class="y-o-t-address">
+                    <span>{{tel}}</span>
+                    <span>{{fullAddress}}</span>
+                </div>
+                <div class="y-o-t-arrow"></div>
+            </div>
+            <div class="y-xq-address" ng-click="goChooseAddress()" ng-if="hasAddress">
+                <div class="y-xq-add active">
+                    请选择地址
+                </div>
+                <div class="y-xq-arrow"></div>
+            </div>
+            <div class="y-o-msg">
+                <div class="y-o-m-title">服务信息：门诊预约</div>
+                <div class="y-o-m-con">
+                    <span>就诊人：{{familyName}}</span>
+                    <span>医院：{{hospital}}</span>
+                    <span>科室：{{department}}</span>
+                    <span>医生姓名：{{doctor}}</span>
+                    <span>期望体检时间：{{hope_time}}</span>
+                </div>
+            </div>
+            <div class="y-o-msg2">
+                <div class="y-o-m-title">
+                    <span>导医服务</span>
+                    <span ng-click="chooseGuideDoctor()">{{guideName}}</span>
+                </div>
+                <div class="y-o-m-con">
+                    <span>给卖家留言</span>
+                    <textarea placeholder="选填（最多30个字)" id="text_msg" ng-change="saveMsg()" ng-model="textMsg"></textarea>
+                </div>
+                <div class="y-o-m-msg">
+                    <span>发票信息</span>
+                    <span ui-sref="invoice">{{invoice}}</span>
+                </div>
+            </div>
+            <div class="y-o-pay">
+                <div class="y-o-p-list">
+                    <span>服务金额</span>
+                    <span>￥{{sum_price}}</span>
+                </div>
+                <div class="y-o-p-list">
+                    <span>运费</span>
+                    <span>￥{{fare}}</span>
+                </div>
+                <div class="y-o-p-list">
+                    <span>陪诊</span>
+                    <span>￥{{guidePrice}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="y-o-gopay">
+        <span>合计：￥{{totalPrice}}</span>
+        <span ng-click="goPay()">立即支付</span>
+    </div>
+    <div class="y-mask" ng-class="showMask==true?'active':''"></div>
+
+    <!--选择导医-->
+    <div class="y-guide-doctor" ng-class="showGuideDoctor==true?'active':''">
+        <div class="y-g-d-list">
+            <div class="y-item" ng-repeat="item in guideDoctor" ng-click="isGuideDoctor($index)">
+                <span>{{item.guide_name}}</span>
+                <span ng-show="item.remark!=''">({{item.remark}})</span>
+                <span>￥{{item.price}}</span>
+            </div>
+        </div>
+        <div class="y-g-d-choose">
+            <span ng-click="closeGuideDoctor()">取消</span>
+            <span ng-click="okGuideDoctor()">确定</span>
+        </div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

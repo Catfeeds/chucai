@@ -1,0 +1,35 @@
+<div class="b-footer y-footer" ng-controller="layoutCtrl">
+  <div class="b-item"
+       ng-class="baseOption.active==1?'ac':''"
+       ui-sref="layout.mobile.home">
+    <div class="pic b-icon">
+      <img ng-src="{{baseOption.active==1?'img/home_current.png':'img/home_default.png'}}">
+    </div>
+    <p>首页</p>
+  </div>
+  <div class="b-item"
+       ng-class="baseOption.active==2?'ac':''"
+       ui-sref="layout.mobile.healthy.tj"
+       ng-click="baseOption.active=2">
+    <div class="pic b-icon">
+      <img ng-src="{{baseOption.active==2?'img/healthy_current.png':'img/healthy_default.png'}}">
+    </div>
+    <p>健康说</p>
+  </div>
+  <div class="b-item"
+       ng-class="baseOption.active==3?'ac':''"
+       ng-click="myServe()">
+    <div class="pic b-icon">
+      <img ng-src="{{baseOption.active==3?'img/serve_current.png':'img/serve-default.png'}}">
+    </div>
+    <p>我的服务</p>
+  </div>
+  <div class="b-item"
+       ng-class="baseOption.active==4?'ac':''"
+       ng-click="myMine()">
+    <div class="pic b-icon">
+      <img ng-src="{{baseOption.active==4?'img/mine_current.png':'img/mine_default.png'}}">
+    </div>
+    <p>个人中心</p>
+  </div>
+</div>

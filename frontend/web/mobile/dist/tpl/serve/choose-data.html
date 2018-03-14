@@ -1,0 +1,12 @@
+<div class="y-title" ng-controller="serveChooseDataCtrl">
+    <span>选择体检时间</span>
+    <div class="y-back" ng-click="goBack()"></div>
+    <span class="y-d-ok" ng-click="submit()">确定</span>
+</div>
+<div class="scroll-content">
+    <div class="y-data-choose">
+        <pie-calendar my-data="time.get">
+            calendar
+        </pie-calendar>
+    </div>
+</div>

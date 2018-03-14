@@ -1,0 +1,243 @@
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+/* 设置默认字体 */
+body,
+button, input, select, textarea {
+    font:30px 'PingHei',Microsoft Yahei,SimSun,Arial,Helvetica,sans-serif;
+}
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+/* 重置文本格式元素 */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+/* 重置表单元素 */
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+html {
+    -webkit-text-size-adjust: none;
+}
+/*select默认下拉样式取消*/
+select{
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+}
+/**/
+body{
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #efefef;
+}
+header{
+    height: 80px;
+    line-height: 80px;
+    background-color: #2375d9;
+    color:#fff;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.line{
+    width: 540px;
+    display: inline-block;
+    text-align: left;
+}
+.pd0-20{
+    padding:0 20px;
+}
+.pd20{
+    padding: 20px;
+}
+.input-group{
+    width:750px;
+    box-sizing: border-box;
+    padding:0 30px;
+    border-bottom: 2px solid #efefef;
+    background-color:#fff;
+    height: 102px;
+    text-align: left;
+    position: relative;
+}
+.input-group>.input-title{
+    font-size: 32px;
+    display: inline-block;
+    height: 100px;
+    line-height: 100px;
+    vertical-align: top;
+}
+input,select{
+    display: inline;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 40px;
+    border: none;
+    vertical-align: top;
+}
+/*搜索*/
+select.select-area{
+    width:568px;
+    background:url("../images/down.png") no-repeat right center ;
+    background-size: 32px 32px;
+    padding:0 32px;
+    box-sizing: border-box;
+}
+.search{
+    height: 100px;
+    width:735px;
+    color: #fff;
+    background-color: #ec5254;
+    border-radius: 6px;
+    margin: 20px auto 30px;
+    font-size: 36px;
+    line-height: 100px;
+    border: none;
+}
+.name-list{
+    width: 100%;
+    margin-bottom: 2px;
+    height: 240px;
+    box-sizing: border-box;
+    padding: 20px 35px;
+    color: #1e1e1e;
+    background-color: #fff;
+}
+.name-list .big{
+    display: inline-block;
+    font-size: 32px;
+    min-width: 120px;
+    max-width: 400px;
+    vertical-align: top;
+}
+.name-list>ul{
+    display: inline-block;
+    width:320px;
+    vertical-align: top;
+}
+.name-list>ul>li{
+    font-size: 28px;
+    line-height: 40px;
+}
+/*详情*/
+.details{
+    margin-bottom: 10px;
+    padding: 30px 0;
+    background-color: #fff;
+}
+.details ul li{
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+.details ul.base{
+    overflow: hidden;
+}
+.details ul.base li{
+    width:50%;
+    float: left;
+}
+.details ul li .mini{
+    font-size: 28px;
+    color:#ccc;
+    line-height: 50px;
+    padding-right: 26px;
+    display: inline-block;
+}
+.details ul li .con{
+    display: inline-block;
+    font-size: 30px;
+    color:#1e1e1e;
+    line-height: 36px;
+}
+.details.area ul li .con{
+    display: block;
+}
+/*注册*/
+.input-group .es{
+    position: absolute;
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    top:34px;
+    right:18px;
+    z-index: 90;
+    color: #ec5254;
+}
+.input-group.area{
+    height: auto;
+    padding-bottom: 20px;
+}
+.input-group.area .input-title{
+    line-height: 80px;
+    height: 80px;
+    display: block;
+}
+textarea{
+    width: 690px;
+    height: 144px;
+    padding: 0 30px;
+    font-size: 30px;
+    line-height: 36px;
+    background:#fff;
+    resize: none;
+    overflow-y:visible;
+    text-align: left;
+    box-sizing: border-box;
+    border: none;
+}
+label.radio{
+    min-width:150px;
+    display: inline-block;
+    vertical-align: middle;
+}
+label.radio>input[type="radio"], label.radio>span{
+    vertical-align: middle;
+}
+label.radio>input[type="radio"]{
+    width:48px;
+    height: 48px;
+    margin: 0;
+}
+label.radio>span{
+    font-size:28px;
+    padding-left: 20px;
+}
+input[type="date"]{
+    display: inline-block;
+    padding:0 32px;
+    width: 440px;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background:url("../images/down.png") no-repeat right center ;
+    background-size: 32px 32px;
+}
+.input-group.has-tip{
+    height: auto;
+}
+.tip{
+    font-size: 22px;
+    text-align: left;
+    padding: 0 0 20px 150px;
+}
+.red{
+    color:#ff6666;
+}
+.green{
+    color:#5bc92e
+}

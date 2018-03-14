@@ -1,0 +1,18 @@
+<div class="b-body h-m-topic" ng-controller="控制器名称">
+    <!--轮播图-->
+    <carousel interval="myInterval">
+        <slide ng-repeat="slide in banners"  active="slide.active">
+            <img class="banner-img img-full" ng-src="{{slide.img_url}}">
+        </slide>
+    </carousel>
+    <!--播报-->
+    <div class="gonggao-div">
+        <ul class="gonggao-ul">
+            <li ng-repeat="item in notices track by $index">
+                <a class="text-sm" ng-bind="item"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--提示框-->
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

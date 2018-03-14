@@ -1,0 +1,26 @@
+<div ng-controller="homeBqmsCtrl">
+    <div class="y-bq y-title">
+        <span>病情描述</span>
+        <div class="y-back" ng-click="goBack()"></div>
+        <div class="y-bq-ok" ng-click="goMzyy()">完成</div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-online y-bq">
+            <div class="y-o-detail">
+                <div class="y-o-d-title">病情描述</div>
+                <textarea placeholder="请详细描述您的病情" ng-focus="showError()"></textarea>
+                <div class="y-o-d-submit">上传病历资料和病情报告</div>
+                <div class="y-o-d-pic">
+                    <img ng-src="{{item}}" ng-repeat="item in data.list">
+                    <img src="img/home/three.png"
+                         ng-show="data.list.length<3"
+                         ng-change="upload(data.img)" ngf-select
+                         ng-model="data.img" name="file"
+                         ngf-accept="'image/jpg,image/jpeg,image/png,image/bmp'">
+                </div>
+            </div>
+            <p class="y-error-msg" ng-show="nullCon">请填写病情描述</p>
+        </div>
+    </div>
+</div>
+

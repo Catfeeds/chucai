@@ -1,0 +1,14 @@
+<div class="pie-radio-inner" ng-class="myData.show? 'active':''">
+    <ul class="checkbox">
+        <li ng-repeat="item in myData.list"
+            ng-click="setData($index,item)"
+            repeat-finish="ready()"
+        >
+            <span>{{item}}</span>
+        </li>
+    </ul>
+    <div class="pie-radio-bot">
+        <span ng-click="cancel()">取消</span>
+        <span ng-click="confirm()">确定</span>
+    </div>
+</div>

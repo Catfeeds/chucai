@@ -1,0 +1,69 @@
+<div ng-controller="homeGxhCtrl">
+    <div class="y-title">
+        <span>个性化体检</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-hospital-items y-gxh">
+            <div class="y-g-nav">
+                <img src="img/home/gxh.png" alt="">
+                <div class="y-g-title">
+                    <span>专业医生定制</span>
+                    <span>精准体检方案</span>
+                    <span>一站式体检体验</span>
+                </div>
+            </div>
+            <div class="y-g-progress">
+                <div class="y-g-p-top">
+                    <div class="y-g-p-title">
+                        <span>个性化体检定制流程</span>
+                    </div>
+                    <!--<div class="y-g-p-intru" ng-click="showIntruDetail()">
+                        <span>定制说明</span>
+                    </div>-->
+                </div>
+                <div class="y-line">
+                    <ul>
+                        <li>
+                            <img src="img/home/circle.png" alt="">
+                            <span>填写健康问卷</span>
+                        </li>
+                        <li>
+                            <img src="img/home/circle.png" alt="">
+                            <span>选择套餐价位</span>
+                        </li>
+                        <li>
+                            <img src="img/home/circle.png" alt="">
+                            <span>预付少量定金</span>
+                        </li>
+                        <li>
+                            <img src="img/home/circle.png" alt="">
+                            <span>瑞梅精准定制</span>
+                        </li>
+                        <li>
+                            <img src="img/home/circle.png" alt="">
+                            <span>温馨短信通知</span>
+                        </li>
+                        <li>
+                            <img src="img/home/circle.png" alt="">
+                            <span>完成尾款支付</span>
+                        </li>
+                        <li>
+                            <img src="img/home/circle.png" alt="">
+                            <span>体验个性体检</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="y-g-ok" ng-click="showIntruDetail()">
+                <span>开启我的定制旅程</span>
+            </div>
+        </div>
+    </div>
+    <!--定制说明-->
+    <div class="y-mask" ng-class="maskShow==true?'active':''"></div>
+    <div class="y-g-p-intruDetail" ng-class="maskShow==true?'active':''">
+        <p>个性化体检定制为定制商品属性，不提供无理由退款服务。请务必看清定金说明，有特殊定制需求请先咨询在线客服或拨打客服热线 <span ng-click="telPhone('400-0709-9654')">400-0709-9654</span> 。如遇交易纠纷，以此条提示为准。不能接受此定金说明的客户，请千万不要下单！</p>
+        <div class="y-g-p-intruDetail-ok" ng-click="goTcdz()">确定</div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div ng-controller="msgZxCtrl" style="margin-top: 1rem">
+    <div class="y-m-item" ng-repeat="item in msgList" ui-sref="chat({id:item.id})">
+        <div class="y-m-left" >
+            <div class="y-m-pic">
+                <img src="img/mine/user.png" alt="">
+            </div>
+            <div class="y-m-text">
+                <span>全能医生</span>
+                <span>{{item.content}}</span>
+            </div>
+        </div>
+        <div class="y-m-right">
+            <span>{{item.update_time}}</span>
+        </div>
+    </div>
+</div>

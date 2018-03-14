@@ -1,0 +1,66 @@
+<div class="y-serve-ywc" ng-controller="serveYwcCtrl">
+    <div class="serve-list">
+        <div class="y-item" ng-repeat="item in ywcList">
+            <div class="title">
+                <div class="left">
+                    <span>服务编号：{{item.order_number}}</span>
+                </div>
+                <div class="right">
+                    <span ng-if="item.type==1">待付款</span>
+                    <span ng-if="item.type==2">交易成功</span>
+                    <span ng-if="item.type==3">已完成</span>
+                    <span ng-if="item.type==5">评价完成</span>
+                    <span ng-if="item.type==6">退款中</span>
+                    <span ng-if="item.type==7">已退款</span>
+                    <span ng-if="item.type==8">尾款交易成功</span>
+                    <span ng-if="item.type==9">未付尾款</span>
+                    <span ng-if="item.type==10">处理中，待付尾款</span>
+                </div>
+            </div>
+            <div class="con" ng-click="goXq($index)">
+                <div class="pic" ng-if="item.package.package_img != null">
+                    <img ng-src="{{item.package.package_img}}" alt="">
+                </div>
+                <div class="pic" ng-if="item.package.package_img == null">
+                    <img src="img/healthy/healthy4.png" alt="">
+                </div>
+                <div class="text">
+                    <div class="title">{{item.package_name}}</div>
+                    <div class="pay">实付款:¥{{item.sum_price}}</div>
+                    <div class="count">
+                        <span>x1</span>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="y-waiting" ng-show="item.order_type==2 && item.type==3 || item.order_type==2 && item.type==5" style="margin-left: 0.32rem;margin-top: 0.5rem">体检时间：{{item.exam_time}}</div>-->
+            <div class="change">
+                <!--个性化已付定金+已付尾款-->
+                <div class="y-dz" ng-if="item.order_type==2 && item.type==3">
+                    <div class="y-top">
+                        <span>阶段一：定金</span>
+                        <span>￥{{item.deposit}}</span>
+                    </div>
+                    <div class="y-top y-bottom">
+                        <span>阶段二：尾款</span>
+                        <span>￥{{item.retainage}}</span>
+                    </div>
+                </div>
+                <div class="y-dz" ng-if="item.order_type==2 && item.type==5">
+                    <div class="y-top">
+                        <span>阶段一：定金</span>
+                        <span>￥{{item.deposit}}</span>
+                    </div>
+                    <div class="y-top y-bottom">
+                        <span>阶段二：尾款</span>
+                        <span>￥{{item.retainage}}</span>
+                    </div>
+                </div>
+                <div class="y-waiting" ng-show="item.order_type==1 && item.type==3 || item.order_type==1 && item.type==5 || item.order_type==3 && item.type==3 || item.order_type==3 && item.type==5 || item.order_type==5 && item.type==3 || item.order_type==5 && item.type==5">体检时间：{{item.exam_time}}</div>
+                <div class="change-change" ui-sref="pj({id:item.id})" ng-show="item.is_evaluate==1">去评价</div>
+                <div class="change-change" ng-show="item.is_evaluate==2">已评价</div>
+                <div class="change-change change-change1" ng-click="contactTel()">联系客服</div>
+            </div>
+        </div>
+        <div class="y-load-more" ng-click="getMore()" ng-if="ywcList.length < total_pages">加载更多</div>
+    </div>
+</div>

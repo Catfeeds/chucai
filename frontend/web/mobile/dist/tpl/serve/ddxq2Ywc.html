@@ -1,0 +1,74 @@
+<!--订单详情-待付款-门诊预约详情页-->
+<div ng-controller="serveDetail2YwcCtrl">
+    <div class="y-title">
+        <span>确认订单</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-serve-xq y-outpatient">
+            <div class="y-o-title" ng-click="goChooseAddress()">
+                <div class="y-o-t-name">{{item.name}}</div>
+                <div class="y-o-t-address">
+                    <span>{{item.tel}}</span>
+                    <span>{{item.full_address}}</span>
+                </div>
+                <!--<div class="y-o-t-arrow"></div>-->
+            </div>
+            <div class="y-o-msg">
+                <div class="y-o-m-title">服务信息：门诊预约</div>
+                <div class="y-o-m-con">
+                    <span>就诊人：{{item.exam_people}}</span>
+                    <span>医院：{{item.hospital}}</span>
+                    <span>科室：{{item.department}}</span>
+                    <span>医生姓名：{{item.doctor}}</span>
+                    <span>期望体检时间：{{item.exam_time}}</span>
+                </div>
+            </div>
+            <div class="y-o-msg2">
+                <div class="y-o-m-title">
+                    <span>导医服务</span>
+                    <span style="background: none;padding-right: 0">{{item.guider}}</span>
+                </div>
+                <div class="y-o-m-con">
+                    <span>给卖家留言</span>
+                    <textarea style="background: none;padding-right: 0">{{item.message}}</textarea>
+                </div>
+                <div class="y-o-m-msg">
+                    <span>发票信息</span>
+                    <span style="background: none;padding-right: 0">{{item.is_invoice}}</span>
+                </div>
+            </div>
+            <div class="y-o-pay">
+                <div class="y-o-p-list">
+                    <span>服务金额</span>
+                    <span>￥{{item.price}}</span>
+                </div>
+                <div class="y-o-p-list">
+                    <span>运费</span>
+                    <span>￥{{item.fare}}</span>
+                </div>
+                <div class="y-o-p-list">
+                    <span>陪诊</span>
+                    <span>￥{{item.guide_price}}</span>
+                </div>
+            </div>
+            <div class="y-xq-dzf">
+                <div class="y-xq-txt">已支付：￥{{item.sum_price}}</div>
+                <div class="y-zf-change">
+                    <!--<div class="y-xq-qzf" ng-click="showChangeXq(true)">申请退款</div>-->
+                    <div class="y-xq-qzf" ui-sref="pj({id:item.id})" ng-show="item.is_evaluate==1">去评价</div>
+                    <div class="y-xq-qzf" ng-show="item.is_evaluate==2">已评价</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="y-mask" ng-class="xQIsShow==true?'active':''"></div>
+    <div class="y-xq-cancel" ng-class="xQIsShow==true?'active':''">
+        <div class="y-xq-title">是否申请退款</div>
+        <div class="y-xq-choose">
+            <span ng-click="showChangeXq(false)">取消</span>
+            <span ng-click="orderDel()">确定</span>
+        </div>
+    </div>-->
+</div>
+

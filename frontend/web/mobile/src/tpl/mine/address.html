@@ -1,0 +1,49 @@
+<div ng-controller="addressCtrl">
+    <div class="y-title">
+        <span>收货地址</span>
+        <div class="y-back" ng-click="goToBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-mine y-address">
+            <div class="y-a-con">
+                <div class="y-a-item" ng-repeat="item in addressList" ng-click="goDdxq(item)">
+                    <div class="y-name">
+                        <span>{{item.consignee}}</span>
+                        <span>{{item.mobile}}</span>
+                    </div>
+                    <div class="y-place">
+                        <span>{{item.full_address}}</span>
+                    </div>
+                    <div class="y-change">
+                        <div class="y-left" ng-click="setBaseAddress($index,item.id);$event.stopPropagation();">
+                            <img src="img/mine/choose.png" alt="" ng-if="item.status==2"><img src="img/mine/chooseed.png" alt="" ng-if="item.status==1"><span>设为默认地址</span>
+                        </div>
+                        <div class="y-right">
+                            <div class="y-change" ng-click="changeAddress(item.id);$event.stopPropagation()"></div>
+                            <div class="y-delete" ng-click="deleteAddress(item.id);$event.stopPropagation()"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--遮罩-->
+    <div class="mask" ng-if="showMask"></div>
+    <div class="y-xq-cancel" ng-class="showMask1==true?'active':''">
+        <div class="y-xq-title">确定删除？</div>
+        <div class="y-xq-choose">
+            <span ng-click="showDel()">取消</span>
+            <span ng-click="deleteDone()">确定</span>
+        </div>
+    </div>
+    <!--新增地址-->
+    <div class="y-address-add" ui-sref="address-choose({isDdxq:2})">新增地址</div>
+    <!--<div class="y-address-add-con" ng-class="showList==true?'active':''">
+        <div class="y-address-add-con-title">
+            <span ng-click="addressListCancle()">取消</span>
+            <span ng-click="addressListOk()">确定</span>
+        </div>
+        <div class="y-address-add-con-list"></div>
+    </div>-->
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

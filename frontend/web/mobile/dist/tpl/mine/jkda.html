@@ -1,0 +1,140 @@
+<div ng-controller="mineDocCtrl">
+    <div class="y-title">
+        <span>健康档案</span>
+        <div class="y-back" ng-click="goMine()"></div>
+        <div class="y-right" ng-click="reportBj()">编辑</div>
+    </div>
+    <div class="y-r-nav">
+        <span ng-click="showGrzl()" ng-class="daShow==1?'active':''">个人资料<div ng-class="daShow==1?'y-border':''"></div></span>
+        <span ng-click="showShxg()" ng-class="daShow==2?'active':''">生活习惯<div ng-class="daShow==2?'y-border':''"></div></span>
+        <span ng-click="showTjjg()" ng-class="daShow==3?'active':''">体检结果<div ng-class="daShow==3?'y-border':''"></div></span>
+    </div>
+    <div class="scroll-content" style="margin-top: 4.5rem;overflow-x: hidden">
+        <div class="y-mine y-mine-report">
+            <!--个人资料-->
+            <div class="y-grzl" ng-if="flagGrzl">
+                <div class="y-items-double">
+                    <div class="y-item">
+                        <span>身高:</span><span> {{ perData.height }}</span>
+                    </div>
+                    <div class="y-item" style="margin-top: 0.1rem">
+                        <span>体重:</span><span> {{perData.weight}}</span>
+                    </div>
+                </div>
+                <div class="y-items-one">
+                    <div class="y-item">
+                        <span>婚姻:</span><span> {{perData.marriage}}</span>
+                    </div>
+                </div>
+            </div>
+            <!--个人资料编辑-->
+            <div class="y-grzl y-grzlbj">
+                <div class="y-items-double">
+                    <div class="y-item">
+                        <span>身高:</span><span><input type="number" placeholder="输入身高" id="height"></span>
+                    </div>
+                    <div class="y-item">
+                        <span>体重:</span><input type="number" placeholder="输入体重" id="weight">
+                    </div>
+                </div>
+                <div class="y-items-one">
+                    <div class="y-item">
+                        <span>婚姻:</span>
+                        <span ng-class="bj1choose==1?'active':''" ng-click="setBj1(1)">已婚</span>
+                        <span ng-class="bj1choose==2?'active':''" ng-click="setBj1(2)">未婚</span>
+                    </div>
+                </div>
+                <div class="button" ng-click="grzlDone()">保存</div>
+            </div>
+
+            <!--生活习惯-->
+            <div class="y-grzl" ng-if="flagShxg">
+                <div class="y-items-double">
+                    <div class="y-item">
+                        <span>抽烟:</span><span>{{perHabits.smoke}}</span>
+                    </div>
+                    <div class="y-item">
+                        <span>饮酒:</span><span>{{perHabits.drunk}}</span>
+                    </div>
+                </div>
+                <div class="y-items-one">
+                    <div class="y-item">
+                        <span>饮食是否规律:</span><span>{{perHabits.diet}}</span>
+                    </div>
+                    <div class="y-item">
+                        <span>睡眠是否规律:</span><span>{{perHabits.sleep}}</span>
+                    </div>
+                    <div class="y-item">
+                        <span>大小便是否正常:</span><span>{{perHabits.defecation}}</span>
+                    </div>
+                    <div class="y-item">
+                        <span>是否长期服用止痛药或镇定催眠药:</span><span>{{perHabits.anodyne}}</span>
+                    </div>
+                </div>
+            </div>
+            <!--生活习惯编辑-->
+            <div class="y-grzl y-shxgbj">
+                <div class="y-items-one">
+                    <div class="y-item">
+                        <span>抽烟:</span>
+                        <span ng-class="bj2choose1==1?'active':''" ng-click="setBj2_1(1)">是</span>
+                        <span ng-class="bj2choose1==2?'active':''" ng-click="setBj2_1(2)">否</span>
+                    </div>
+                    <div class="y-item">
+                        <span>饮酒:</span>
+                        <span ng-class="bj2choose2==1?'active':''" ng-click="setBj2_2(1)">是</span>
+                        <span ng-class="bj2choose2==2?'active':''" ng-click="setBj2_2(2)">否</span>
+                    </div>
+                </div>
+                <div class="y-items-one">
+                    <div class="y-item">
+                        <span>饮食是否规律:</span>
+                        <span ng-class="bj2choose3==1?'active':''" ng-click="setBj2_3(1)">是</span>
+                        <span ng-class="bj2choose3==2?'active':''" ng-click="setBj2_3(2)">否</span>
+                    </div>
+                    <div class="y-item">
+                        <span>睡眠是否规律:</span>
+                        <span ng-class="bj2choose4==1?'active':''" ng-click="setBj2_4(1)">是</span>
+                        <span ng-class="bj2choose4==2?'active':''" ng-click="setBj2_4(2)">否</span>
+                    </div>
+                    <div class="y-item">
+                        <span>大小便是否正常:</span>
+                        <span ng-class="bj2choose5==1?'active':''" ng-click="setBj2_5(1)">是</span>
+                        <span ng-class="bj2choose5==2?'active':''" ng-click="setBj2_5(2)">否</span>
+                    </div>
+                    <div class="y-item " id="y-shxg-item">
+                        <span>是否长期服用止痛药或镇定催眠药:</span>
+                        <span ng-class="bj2choose6==1?'active':''" ng-click="setBj2_6(1)">是</span>
+                        <span ng-class="bj2choose6==2?'active':''" ng-click="setBj2_6(2)">否</span>
+                    </div>
+                </div>
+                <div class="button" ng-click="shxgDone()">保存</div>
+            </div>
+
+
+            <!--体检结果-->
+            <div class="y-tjjg" ng-if="flagTjjg">
+                <div class="y-items" ng-repeat="item in reports">
+                    <div class="y-i-title">{{item.name}}的体检报告</div>
+                    <div class="y-reports">
+                        <div class="y-item-1" ng-repeat="list in item.orderLimit">
+                            <span>{{list.institution_name}}</span>
+                            <span>{{list.package_name}}</span>
+                            <span>{{list.create_time}}</span>
+                            <span ng-click="showReportPic(list.id)">查看</span>
+                        </div>
+                    </div>
+                    <!--<div class="y-item-more" ng-click="readMore(item.id,$index)" ng-hide="item.orderLimit.length<3">查看更多报告</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="y-report-detail" ng-class="showReport==true?'active':''">
+        <div class="y-title">
+            <span>体检报告</span>
+            <div class="y-back" ng-click="isShowReport()"></div>
+        </div>
+        <p ng-if="reportImg==null" style="text-align: center;margin-top: 4rem">此人暂无体检报告...</p>
+        <img ng-repeat="item in reportImg" ng-src="{{item.images}}" alt="" ng-if="reportImg!=null">
+    </div>
+</div>

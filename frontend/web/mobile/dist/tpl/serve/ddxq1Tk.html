@@ -1,0 +1,87 @@
+<!--订单详情-已付款-套餐类型详情页-->
+<div ng-controller="serveDetail1TkCtrl">
+    <div class="y-title">
+        <span>订单详情</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-serve-xq">
+            <div class="y-xq-bh">
+                <p>
+                    <span>下单时间：</span><span>{{item.create_time}}</span>
+                </p>
+                <p>
+                    <span>订单编号：</span><span>{{item.order_number}}</span>
+                </p>
+            </div>
+            <div class="y-xq-address">
+                <div class="y-xq-name">{{item.name}}</div>
+                <div class="y-xq-add">
+                    <p>{{item.tel}}</p>
+                    <p>{{item.full_address}}</p>
+                </div>
+                <!--<div class="y-xq-arrow" ui-sref="address"></div>-->
+            </div>
+            <div class="y-xq-item" ui-sref="tcxq({listId:item.package_id,serveFlag:true})">
+                <div class="y-xq-title">慈铭体验</div>
+                <div class="y-xq-con">
+                    <div class="y-xq-pic">
+                        <img src="img/healthy/healthy4.png" alt="">
+                    </div>
+                    <div class="y-xq-text">
+                        <p>{{item.package.package_name}}</p>
+                        <p>实付款：<span>￥{{item.price}}</span></p>
+                        <div class="y-xq-count">x1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="y-xq-list-1">
+                <div class="y-xq-item">
+                    <div class="y-key">体检时间</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.exam_time}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">体检人</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.exam_people}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医服务</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.guider}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">发票信息</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.is_invoice}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">留言</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.message}}</div>
+                </div>
+            </div>
+            <div class="y-xq-list-2">
+                <div class="y-xq-item">
+                    <div class="y-key">商品金额</div>
+                    <div class="y-value" style="background: none;padding-right: 0">￥{{item.price}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">运费</div>
+                    <div class="y-value" style="background: none;padding-right: 0">￥{{item.fare}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医</div>
+                    <div class="y-value" style="background: none;padding-right: 0">￥{{item.guide_price}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">优惠券</div>
+                    <div class="y-value" style="background: none;padding-right: 0">-0.00</div>
+                </div>
+            </div>
+            <div class="y-xq-dzf">
+                <div class="y-xq-txt">已支付：￥{{item.sum_price}}</div>
+                <div class="y-zf-change">
+                    <div class="y-xq-qzf">退款中</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

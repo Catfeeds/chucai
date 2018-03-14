@@ -1,0 +1,16 @@
+<div ng-controller="healthyCtrl" style="z-index: 1">
+    <div class="y-title">
+        <span>健康说</span>
+        <div class="y-alarm" ng-click="goMsg('healthy')">
+            <div class="y-alarm-msg" ng-if="isRead"></div>
+        </div>
+    </div>
+    <div class="pie-has-title has-healthy-nav">
+        <div class="y-nav">
+            <span ui-sref=".tj" ng-class="baseOption.healtyhIsShow==-1?'active':''" ng-click="setShow(-1)">推荐</span>
+            <span ui-sref=".rd" ng-class="baseOption.healtyhIsShow==-2?'active':''" ng-click="setShow(-2)">热点</span>
+            <span ng-repeat="item in labelList" ng-class="baseOption.healtyhIsShow==$index?'active':''" ng-click="chooseType($index)">{{item.label_name}}</span>
+        </div>
+        <ui-view class="fade-in-right-big smooth h-full"></ui-view>
+    </div>
+</div>

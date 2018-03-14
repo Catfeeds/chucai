@@ -1,0 +1,27 @@
+<div ng-controller="homeHospitalCtrl">
+    <div class="y-title">
+        <span>药店推荐</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-hospital-items" style="margin-top: 1rem">
+            <div class="y-hospital y-online">
+                <div class="y-o-title">
+                    <span><b>药店列表</b></span>
+                </div>
+                <div class="y-h-items">
+                    <div class="y-h-item y-o-text" ng-repeat="item in pharmacy">
+                        <div class="y-o-txt y-h-i-text">
+                            <span>{{item.store_name}}</span>
+                            <span>{{item.address}}</span>
+                            <span>{{item.tel}}</span>
+                        </div>
+                        <div class="y-h-i-pic y-o-pic">
+                            <img ng-src="{{item.images}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

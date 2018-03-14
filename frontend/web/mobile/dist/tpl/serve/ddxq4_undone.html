@@ -1,0 +1,50 @@
+<!--个性化定制详情-->
+<div ng-controller="serveDetail4UndoneCtrl">
+    <div class="y-title">
+        <span>尾款支付</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-hospital-items y-gxh y-g-question y-g-question-done y-serve-xq">
+            <div class="y-xq-item" ui-sref="tcxq({listId:item.package_id,serveFlag:true})">
+                <div class="y-xq-title">慈铭体验</div>
+                <div class="y-xq-con">
+                    <div class="y-xq-pic">
+                        <img ng-src="{{item.package.package_img}}" alt="">
+                    </div>
+                    <div class="y-xq-text">
+                        <p>{{item.package.package_name}}</p>
+                        <p>实付款：<span>￥{{item.package.present_price}}</span></p>
+                        <div class="y-xq-count">x1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="y-g-msg">
+                <div class="y-g-m-title">支付信息</div>
+                <div class="y-g-m-pay">
+                    <span>订单定金</span>
+                    <span>￥{{item.deposit}}</span>
+                </div>
+                <div class="y-g-m-pay">
+                    <span>买付定金</span>
+                    <span>￥{{item.deposit}}</span>
+                </div>
+            </div>
+            <div class="y-xq-dzf">
+                <div class="y-xq-txt">待支付：￥{{item.retainage}}</div>
+                <div class="y-zf-change">
+                    <div class="y-xq-qzf" ng-click="showChangeXq(true)">取消订单</div>
+                    <div class="y-xq-qzf" ui-sref="ddxq_dz({id:item.id,type:item.type,retainage:item.retainage})" ng-hide="item.type==10">去支付</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="y-mask" ng-class="xQIsShow==true?'active':''"></div>
+    <div class="y-xq-cancel" ng-class="xQIsShow==true?'active':''">
+        <div class="y-xq-title">是否确定取消订单</div>
+        <div class="y-xq-choose">
+            <span ng-click="showChangeXq(false)">取消</span>
+            <span ng-click="orderDel()">确定</span>
+        </div>
+    </div>
+</div>

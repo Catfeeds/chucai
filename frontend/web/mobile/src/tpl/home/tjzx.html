@@ -1,0 +1,46 @@
+<div ng-controller="homeTjzxCtrl">
+    <div class="y-title y-title-tjzx">
+        <p>{{lists[0].name}}</p>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content tjzx-content">
+        <div class="y-tjzx">
+            <div class="y-t-img">
+                <img ng-src="{{lists[0].img}}" alt="loading">
+            </div>
+            <div class="y-t-list">
+                <div class="y-t-l-title">
+                    <span><b>体检套餐推荐</b></span>
+                </div>
+                <div class="y-t-l-item" ng-repeat="item in lists_package" ng-click="goTcxq(item.id)">
+                    <div class="y-t-l-text">
+                        <span>{{item.package_name}}</span>
+                        <span>{{item.present_price}}</span>
+                        <span>{{item.original_price}}</span>
+                    </div>
+                    <div class="y-t-l-pic">
+                        <img ng-src="{{item.package_img}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--<div class="y-t-more">
+                <h6>点击查看更多</h6>
+            </div>-->
+            <div class="y-t-intru">
+                <div class="y-t-i-title">
+                    <span><b>分院介绍</b></span>
+                </div>
+                <div class="y-t-i-item">
+                    <span>休息时间：{{lists[0].rest_time}}</span>
+                </div>
+                <div class="y-t-i-item">
+                    <span>分院地址：{{lists[0].address}}</span>
+                </div>
+                <div class="y-t-i-item" ng-click="telPeople(lists[0].tel)">
+                    <span>分院电话：{{lists[0].tel}}</span>
+                    <div class="img"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

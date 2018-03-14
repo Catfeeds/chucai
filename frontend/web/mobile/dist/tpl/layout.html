@@ -1,0 +1,21 @@
+  <!-- navbar -->
+  <!--<div data-ng-include=" 'tpl/blocks/header.html' " class="app-header navbar">-->
+  <!--</div>-->
+  <!-- / navbar -->
+
+  <!-- menu -->
+  <!--<div data-ng-include=" 'tpl/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}" ng-class="{'hide': app.hideAside }">-->
+  <!--</div>-->
+  <!-- / menu -->
+
+  <!-- view -->
+  <div class="app-content" ng-class="{'m-n': app.hideAside}">
+    <div class="app-content-body app-content-full fade-in-up" style="top: 0;"  ui-view>
+    </div>
+  </div>
+  <!-- / view -->
+  <!-- navbar -->
+  <div class="app-footer navbar navbar-fixed-bottom bg-light lt " id="app-footer" ng-class="{'m-n': app.hideAside, 'hide': baseOption.tourist}" ui-view="footer">
+  </div>
+  <!-- /navbar -->
+  <toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

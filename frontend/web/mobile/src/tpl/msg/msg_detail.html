@@ -1,0 +1,23 @@
+<div ng-controller="msgDetailCtrl">
+    <div class="y-title">
+        <span>消息详情</span>
+        <div class="y-back" ng-click="goToBack()"></div>
+        <div class="y-right msg" ng-click="showMsgChoose()"><img src="img/mine/share.png" alt=""></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-msg-detail">
+            <div class="y-msg-con">
+                <div class="y-m-c-title">{{con.title}}</div>
+                <div class="y-m-c-data">{{con.create_time}}</div>
+                <div class="y-m-c-text" ng-bind-html="con.content"></div>
+            </div>
+        </div>
+    </div>
+    <!--遮罩层-->
+    <div class="mask" ng-if="showMask" ng-click="cancel()"></div>
+    <!--清空消息选项-->
+    <div class="y-msg-chooose" ng-class="showMask==true?'active':''">
+        <div class="y-msg-item">全部标记为已读</div>
+        <div class="y-msg-item" ng-click="showMask=false">取消</div>
+    </div>
+</div>

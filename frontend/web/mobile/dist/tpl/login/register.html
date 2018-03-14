@@ -1,0 +1,18 @@
+<div ng-controller="registerCtrl">
+    <div class="y-login">
+        <div class="y-title" style="background: transparent">
+            <div class="y-back" ng-click="goBack()"></div>
+        </div>
+    </div>
+    <div class="scroll-content register" style="margin-top: 0;top: 0">
+    </div>
+    <div class="y-l-con y-r-con">
+        <input type="number" placeholder="输入手机号" id="y-tel" required>
+        <input type="number" placeholder="验证码" id="y-verification"><span ng-click="getVerification()"></span>
+        <input type="password" placeholder="设置密码" id="y-password">
+        <input type="password" placeholder="再次输入密码" id="y-passwd" ng-change="verificationPasswd()" ng-model="con">
+        <p ng-if="showPasswdMsg" style="text-align: center;color: red">{{passwordMsg}}</p>
+        <div class="y-l-login" ng-click="registerDone()">开启健康之旅</div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

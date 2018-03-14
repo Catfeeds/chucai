@@ -1,0 +1,14 @@
+<div ng-controller="msgCtrl">
+    <div class="y-m-fwxx">
+        <div class="y-m-items" ng-repeat="item in msg1" ng-click="goToDetail(item.notice.id)">
+            <div class="y-m-it">
+                <div class="y-m-txt">{{item.notice.title}}</div>
+                <div class="y-m-data">{{item.notice.create_time}}</div>
+            </div>
+            <div class="y-m-img">
+                <img src="img/mine/right.png" alt="">
+            </div>
+            <div class="y-unread" ng-if="item.is_read==1"></div>
+        </div>
+    </div>
+</div>

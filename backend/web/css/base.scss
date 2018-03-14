@@ -1,0 +1,54 @@
+@function px2rem($px){
+	@return $px*8/375 + rem;
+}
+@function cGray(){
+	@return #9b9b9b
+}
+@function textGray(){
+	@return #585858
+}
+@function cLBlue(){
+	@return #58c0cd
+}
+@function conTxtGray(){
+	@return #333333
+}
+@function bgColor(){
+	@return #f4f4f4
+}
+@function bgWhite(){
+	@return #fff
+}
+@function payRed(){
+	@return #fb5034
+}
+@mixin sefFont($px){
+	font-size: $px+px ;
+	[data-dpr="2"] &{
+		font-size: 2*$px+px;
+	}
+	[data-dpr="3"] &{
+		font-size: 3*$px+px;
+	}
+}
+.b-font-12{
+	@include sefFont(12)
+}
+.b-font-13{
+	@include sefFont(13)
+}
+.b-font-14{
+	@include sefFont(14)
+}
+.b-font-15{
+	@include sefFont(15)
+}
+.b-font-16{
+	@include sefFont(16)
+}
+.b-font-17{
+	@include sefFont(17)
+}
+.b-font-18{
+	@include sefFont(18)
+}

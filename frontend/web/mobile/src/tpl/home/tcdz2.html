@@ -1,0 +1,178 @@
+<div ng-controller="homeTcdzCtrl">
+    <div class="y-title">
+        <span>健康问卷调查</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-hospital-items y-gxh y-g-question">
+            <!--问卷2-->
+            <div class="y-g-1 y-g-2">
+                <div class="y-g-1-lists">
+                    <div class="y-g-1-title">
+                        <span>二、健康问卷</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>1、家族史（多选）</span>
+                        <span ng-click="quesData.ques2.show=true">{{quesData.ques2.result}}</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>2、既往病史（多选）</span>
+                        <span ng-click="quesData.ques3.show=true" ng-bind="quesData.ques3.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>3、过敏史（多选）</span>
+                        <span ng-click="quesData.ques4.show=true" ng-bind="quesData.ques4.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-sex">
+                        <span>4、您的生活方式是否已静坐为主？</span>
+                        <span ng-click="option.sit='是'" ng-class="option.sit=='是'?'active':''">是</span>
+                        <span ng-click="option.sit='否'" ng-class="option.sit=='否'?'active':''">否</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-sex">
+                        <span>5、您的睡眠是否充足？（6-8小时）</span>
+                        <span ng-click="option.sleep='是'" ng-class="option.sleep=='是'?'active':''">是</span>
+                        <span ng-click="option.sleep='否'" ng-class="option.sleep=='否'?'active':''">否</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>6、您的睡眠质量如何？</span>
+                        <span ng-click="quesData.ques5.show=true" ng-bind="quesData.ques5.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>7、请问您是否有如下习惯？</span>
+                        <span ng-click="quesData.ques6.show=true" ng-bind="quesData.ques6.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-sex">
+                        <span>8、您是否每天吸烟超过20支？</span>
+                        <span ng-click="option.smoke='是'" ng-class="option.smoke=='是'?'active':''">是</span>
+                        <span ng-click="option.smoke='否'" ng-class="option.smoke=='否'?'active':''">否</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>9、您的吸烟年限？</span>
+                        <span ng-click="quesData.ques7.show=true" ng-bind="quesData.ques7.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>10、您有被动吸烟吗？</span>
+                        <span ng-click="quesData.ques8.show=true" ng-bind="quesData.ques8.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>11、您平常参加体育锻炼吗？</span>
+                        <span ng-click="quesData.ques9.show=true" ng-bind="quesData.ques9.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>12、您每日膳食搭配？</span>
+                        <span ng-click="quesData.ques10.show=true" ng-bind="quesData.ques10.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>13、您的每日大概饮水量？</span>
+                        <span ng-click="quesData.ques11.show=true" ng-bind="quesData.ques11.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>14、您是否有以下情况？</span>
+                        <span ng-click="quesData.ques12.show=true" ng-bind="quesData.ques12.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>15、您是否有以下情况？</span>
+                        <span ng-click="quesData.ques13.show=true" ng-bind="quesData.ques13.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>16、您有精神压抑的情况吗？</span>
+                        <span ng-click="quesData.ques14.show=true" ng-bind="quesData.ques14.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>17、您是否有颈椎/腰椎疾病？（多选）</span>
+                        <span ng-click="quesData.ques15.show=true" ng-bind="quesData.ques15.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>18、您上次体检是否有以下情况？</span>
+                        <span ng-click="quesData.ques16.show=true" ng-bind="quesData.ques16.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-sex">
+                        <span>19、您是否在6个月内有生育的意愿？</span>
+                        <span ng-click="option.burn='是'" ng-class="option.burn=='是'?'active':''">是</span>
+                        <span ng-click="option.burn='否'" ng-class="option.burn=='否'?'active':''">否</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--遮罩层-->
+    <div class="y-mask" ng-class="maskShow==true?'active':''"></div>
+    <!--健康问卷-->
+    <!--家族史2-->
+    <pie-checkbox1
+        my-data="quesData.ques2"
+        ng-class="quesData.ques2.show?'active':''">
+    </pie-checkbox1>
+    <!--既往病历2-->
+    <pie-checkbox1
+        my-data="quesData.ques3"
+        ng-class="quesData.ques3.show?'active':''">
+    </pie-checkbox1>
+    <!--过敏2-->
+    <pie-checkbox1
+        my-data="quesData.ques4"
+        ng-class="quesData.ques4.show?'active':''">
+    </pie-checkbox1>
+    <!--睡眠质量-->
+    <pie-radio
+        my-data="quesData.ques5"
+        ng-class="quesData.ques5.show?'active':''">
+    </pie-radio>
+    <!--习惯3-->
+    <pie-checkbox1
+        my-data="quesData.ques6"
+        ng-class="quesData.ques6.show?'active':''">
+    </pie-checkbox1>
+    <!--吸烟年限-->
+    <pie-radio
+        my-data="quesData.ques7"
+        ng-class="quesData.ques7.show?'active':''">
+    </pie-radio>
+    <!--被动吸烟-->
+    <pie-radio
+        my-data="quesData.ques8"
+        ng-class="quesData.ques8.show?'active':''">
+    </pie-radio>
+    <!--锻炼-->
+    <pie-radio
+        my-data="quesData.ques9"
+        ng-class="quesData.ques9.show?'active':''">
+    </pie-radio>
+    <!--膳食搭配-->
+    <pie-radio
+        my-data="quesData.ques10"
+        ng-class="quesData.ques10.show?'active':''">
+    </pie-radio>
+    <!--饮水量-->
+    <pie-radio
+        my-data="quesData.ques11"
+        ng-class="quesData.ques11.show?'active':''">
+    </pie-radio>
+    <!--是否有以下情况3-->
+    <pie-checkbox1
+        my-data="quesData.ques12"
+        ng-class="quesData.ques12.show?'active':''">
+    </pie-checkbox1>
+    <!--是否有以下情况3-->
+    <pie-checkbox1
+        my-data="quesData.ques13"
+        ng-class="quesData.ques13.show?'active':''">
+    </pie-checkbox1>
+    <!--精神压抑-->
+    <pie-radio
+        my-data="quesData.ques14"
+        ng-class="quesData.ques14.show?'active':''">
+    </pie-radio>
+    <!--颈椎病3-->
+    <pie-checkbox1
+        my-data="quesData.ques15"
+        ng-class="quesData.ques15.show?'active':''">
+    </pie-checkbox1>
+    <!--上次体检疾病2-->
+    <pie-checkbox1
+        my-data="quesData.ques16"
+        ng-class="quesData.ques16.show?'active':''">
+    </pie-checkbox1>
+    <div class="y-g-1-ok y-g-2-ok" ng-click="goTcdz3()">保存，下一步</div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

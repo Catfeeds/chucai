@@ -1,0 +1,40 @@
+@import "base";
+.b-content{
+  width:100vw;
+}
+.b-footer{
+  width:100vw;
+  height:px2rem(98);
+  position: fixed;
+  left:0;
+  bottom:0;
+  background: #fcfcfc;
+  display: flex;
+  .b-item{
+    height: 100%;
+    flex:1;
+    text-align: center;
+    .b-icon{
+      display: inline-block;
+      width:px2rem(44);
+      height: px2rem(40);
+      img{
+        height: 100%;
+      }
+      margin-top: px2rem(10);
+    }
+    p{
+      color:cGray();
+      @include sefFont(12);
+      line-height:px2rem(39);
+    }
+  }
+  .b-item.ac{
+    p{
+      color:cLBlue()
+    }
+  }
+}
+ion-content.has-b-footer{
+  bottom:px2rem(98);
+}

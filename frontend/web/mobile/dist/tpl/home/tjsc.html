@@ -1,0 +1,70 @@
+<div ng-controller="homeTjscCtrl">
+    <div class="y-title">
+        <p>体检商城</p>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-tjzx y-tjsc">
+            <div class="y-t-types">
+                <div class="y-t-t-top">
+                    <div class="y-left" ui-sref="type_detail({id:label[0].id,title:label[0].title})">
+                        <img ng-src="{{label[0].images}}" alt="">
+                        <p>{{label[0].title}}</p>
+                        <span>{{label[0].remark}}</span>
+                    </div>
+                    <div class="y-right">
+                        <div class="y-r-item" ui-sref="type_detail({id:label[1].id,title:label[1].title})">
+                            <img ng-src="{{label[1].images}}" alt="">
+                            <div class="y-r-txt">
+                                <p>{{label[1].title}}</p>
+                                <span>{{label[1].remark}}</span>
+                            </div>
+                        </div>
+                        <div class="y-r-item" ui-sref="type_detail({id:label[2].id,title:label[2].title})">
+                            <img ng-src="{{label[2].images}}" alt="">
+                            <div class="y-r-txt">
+                                <p>{{label[2].title}}</p>
+                                <span>{{label[2].remark}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="y-t-t-bottom">
+                    <div class="y-item" ui-sref="type_detail({id:label[3].id,title:label[3].title})">
+                        <span>{{label[3].title}}</span>
+                        <img ng-src="{{label[3].images}}" alt="">
+                    </div>
+                    <div class="y-item" ui-sref="type_detail({id:label[4].id,title:label[4].title})">
+                        <span>{{label[4].title}}</span>
+                        <img ng-src="{{label[4].images}}" alt="">
+                    </div>
+                    <div class="y-item" ui-sref="type_detail({id:label[5].id,title:label[5].title})">
+                        <span>{{label[5].title}}</span>
+                        <img ng-src="{{label[5].images}}" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="y-t-list" style="overflow: visible">
+                <div class="y-t-l-title">
+                    <span><b>精品推荐</b></span>
+                </div>
+                <div class="y-t-l-item" ng-repeat="item in addhot" ui-sref="tcxq({listId:item.id})">
+                    <div class="y-t-l-text">
+                        <span>{{item.package_name}}</span>
+                        <span>{{item.present_price}}</span>
+                        <span>{{item.original_price}}</span>
+                    </div>
+                    <div class="y-t-l-pic">
+                        <!--<img src="img/home/pic1.png" alt="">-->
+                        <img ng-src="{{item.package_img}}" alt="loading...">
+                    </div>
+                </div>
+            </div>
+            <div class="y-t-more" ng-click="getMore()" ng-if="typeList.length < total_pages">
+                <h6>点击查看更多</h6>
+            </div>
+        </div>
+    </div>
+</div>

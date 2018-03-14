@@ -1,0 +1,25 @@
+<div ng-controller="msgCtrl">
+    <div class="y-title">
+        <span>消息中心</span>
+        <div class="y-back" ng-click="goToBack()"></div>
+        <div class="y-right msg" ng-click="showMsgChoose()"><img src="img/mine/share.png" alt=""></div>
+    </div>
+    <div class="scroll-content has-nav">
+        <div class="y-mine y-mine-report y-msg">
+            <div class="y-r-nav">
+                <span ui-sref=".wdzx">我的咨询<div ng-class="baseOption.msgShow==1?'y-border':''"></div></span>
+                <span ng-click="goFwxx()">服务信息<div ng-class="baseOption.msgShow==2?'y-border':''"></div></span>
+                <span ng-click="goXtgg()">系统公告<div ng-class="baseOption.msgShow==3?'y-border':''"></div></span>
+            </div>
+            <div ui-view class="fade-in-right-big smooth h-full"></div>
+        </div>
+    </div>
+    <!--遮罩层-->
+    <div class="mask" ng-if="showMask" ng-click="cancel()"></div>
+    <!--清空消息选项-->
+    <div class="y-msg-chooose" ng-class="showMask==true?'active':''">
+        <div class="y-msg-item" ng-click="isReadAll()">全部标记为已读</div>
+        <div class="y-msg-item" ng-click="showMask=false">取消</div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

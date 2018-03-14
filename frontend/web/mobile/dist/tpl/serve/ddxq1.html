@@ -1,0 +1,96 @@
+<!--订单详情-待付款-套餐类型详情页-->
+<div ng-controller="serveDetail1Ctrl">
+    <div class="y-title">
+        <span>订单详情</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-serve-xq">
+            <div class="y-xq-bh" style="margin-top: 1rem">
+                <p>
+                    <span>下单时间：</span><span>{{item.create_time}}</span>
+                </p>
+                <p>
+                    <span>订单编号：</span><span>{{item.order_number}}</span>
+                </p>
+            </div>
+            <div class="y-xq-address">
+                <div class="y-xq-name">{{item.name}}</div>
+                <div class="y-xq-add">
+                    <p>{{item.tel}}</p>
+                    <p>{{item.full_address}}</p>
+                </div>
+                <!--<div class="y-xq-arrow" ui-sref="address"></div>-->
+            </div>
+            <div class="y-xq-item" ui-sref="tcxq({listId:item.package_id,serveFlag:true})">
+                <div class="y-xq-title" ng-bind="item.institution_name"></div>
+                <div class="y-xq-con">
+                    <div class="y-xq-pic">
+                        <img ng-src="{{item.package.package_img}}" alt="">
+                    </div>
+                    <div class="y-xq-text">
+                        <p>{{item.package.package_name}}</p>
+                        <p>实付款：<span>￥{{item.package.present_price}}</span></p>
+                        <div class="y-xq-count">x1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="y-xq-list-1">
+                <div class="y-xq-item">
+                    <div class="y-key">体检时间</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.exam_time}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">体检人</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.exam_people}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医服务</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.guider}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">留言</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.message}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">发票信息</div>
+                    <div class="y-value" style="background: none;padding-right: 0">{{item.is_invoice}}</div>
+                </div>
+            </div>
+            <div class="y-xq-list-2">
+                <div class="y-xq-item">
+                    <div class="y-key">商品金额</div>
+                    <div class="y-value" style="background: none;padding-right: 0">￥{{item.price}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">运费</div>
+                    <div class="y-value" style="background: none;padding-right: 0">￥{{item.fare}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医</div>
+                    <div class="y-value" style="background: none;padding-right: 0">￥{{item.guide_price}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">优惠券</div>
+                    <div class="y-value" style="background: none;padding-right: 0">-0.00</div>
+                </div>
+            </div>
+            <div class="y-xq-dzf">
+                <div class="y-xq-txt">待支付：￥{{item.sum_price}}</div>
+                <div class="y-zf-change">
+                    <div class="y-xq-qzf" ng-click="showChangeXq(true)">取消订单</div>
+                    <div class="y-xq-qzf" ui-sref="tjyyPay({id:item.id,isServe:1})">去支付</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="y-mask" ng-class="xQIsShow==true?'active':''"></div>
+    <div class="y-xq-cancel" ng-class="xQIsShow==true?'active':''">
+        <div class="y-xq-title">是否确定取消订单</div>
+        <div class="y-xq-choose">
+            <span ng-click="showChangeXq(false)">取消</span>
+            <span ng-click="orderDel()">确定</span>
+        </div>
+    </div>
+</div>

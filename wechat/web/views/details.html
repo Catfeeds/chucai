@@ -1,0 +1,55 @@
+<header class="text-center">
+  平湖人才详情
+</header>
+<div class="details">
+  <ul class="base">
+    <li><div class="mini">名字:</div><div class="con">{{show.detailsCon.name}}</div></li>
+    <li><div class="mini">性别:</div><div class="con">{{show.detailsCon.sex==1?"男":"女"}}</div></li>
+    <li><div class="mini">手机号:</div><div class="con">{{show.detailsCon.tel}}</div></li>
+    <li><div class="mini">所属区域:</div><div class="con">{{show.detailsCon.dt.name}}</div></li>
+    <li><div class="mini">学历:</div><div class="con">{{show.detailsCon.sh.name}}</div></li>
+    <li><div class="mini">国籍:</div><div class="con">{{show.detailsCon.na.name}}</div></li>
+  </ul>
+</div>
+<div class="details">
+  <ul>
+    <li>
+      <div class="mini">生日:</div>
+      <div class="con">{{show.detailsCon.birthday}}</div>
+    </li>
+    <li>
+      <div class="mini">微信号:</div>
+      <div class="con">{{show.detailsCon.wechat}}</div>
+    </li>
+    <li><div class="mini">固定电话:</div><div class="con">{{show.detailsCon.telephone}}</div></li>
+    <li><div class="mini">毕业学校:</div><div class="con">{{show.detailsCon.school}}</div></li>
+    <li><div class="mini">邮箱:</div><div class="con">{{show.detailsCon.email}}</div></li>
+    <li><div class="mini">现工作及职务:</div><div class="con">{{show.detailsCon.job}}</div></li>
+    <li><div class="mini">现工作(学习)单位地址:</div><div class="con">{{show.detailsCon.job_address}}</div>
+    </li>
+  </ul>
+</div>
+<div class="details area">
+  <ul>
+    <li><div class="mini">个人学习简历:</div>
+      <div class="con">
+        {{show.detailsCon.resume}}
+      </div>
+    </li>
+    <li><div class="mini">工作经历:</div>
+      <div class="con">
+        {{show.detailsCon.work_history}}
+      </div>
+    </li>
+    <li><div class="mini">个人专业领域、主要成果等:</div>
+      <div class="con">
+        {{show.detailsCon.fruits}}
+      </div>
+    </li>
+    <li><div class="mini">创办公司所属行业、主营业务及规模等:</div>
+      <div class="con">
+        {{show.detailsCon.service}}
+      </div>
+    </li>
+  </ul>
+</div>

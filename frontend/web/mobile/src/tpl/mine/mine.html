@@ -1,0 +1,82 @@
+<div ng-controller="mineCtrl">
+    <div class="y-title">
+        <span>个人中心</span>
+        <div class="y-alarm" ng-click="goMsg('mine')">
+            <div class="y-alarm-msg" ng-if="isRead"></div>
+        </div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-mine">
+            <div class="y-user" ng-show="!isLogin">
+                <div class="y-user-detail">
+                    <div class="y-name">
+                        <span>{{userName}}</span>
+                        <span ng-show="userList.name==null"></span>
+                        <span>{{userVip}}</span>
+                    </div>
+                    <div class="y-sex">
+                        性别：<span>{{userSex}}</span>
+                    </div>
+                    <div class="y-jf">
+                        积分：<span>{{userList.score}}</span>
+                    </div>
+                </div>
+                <div class="y-user-pic" ui-sref="zhgl">
+                    <!--<img src="img/mine/user.png" alt="">-->
+                    <img ng-src="{{userPhoto}}" alt="">
+                    <span>账户管理</span>
+                </div>
+            </div>
+            <div class="y-user y-unlogin-user" ng-show="isLogin">
+                <div class="y-user-detail" style="margin-top: 2rem">
+                    <div class="y-name" ui-sref="login">
+                        <span>请登录</span>
+                        <span>{{userVip}}</span>
+                    </div>
+                </div>
+                <div class="y-user-pic" ng-click="isUserLogin()">
+                    <img src="img/mine/uploadpic.png" alt="">
+                    <span>账户管理</span>
+                </div>
+            </div>
+            <div class="y-lists">
+                <div class="y-lists-item" ng-click="goQybd()">
+                    <div class="y-left">
+                        <div class="y-img"><img src="img/mine/mine1.png" alt=""></div>
+                        <div class="y-img-txt">企业绑定</div>
+                    </div>
+                    <div class="y-right"></div>
+                </div>
+                <div class="y-lists-item" ng-click="goWdtyq()">
+                    <div class="y-left">
+                        <div class="y-img"><img src="img/mine/mine2.png" alt=""></div>
+                        <div class="y-img-txt">我的体检券</div>
+                    </div>
+                    <div class="y-right"></div>
+                </div>
+                <div class="y-lists-item" ng-click="goJkda()">
+                    <div class="y-left">
+                        <div class="y-img"><img src="img/mine/mine3.png" alt=""></div>
+                        <div class="y-img-txt">健康档案</div>
+                    </div>
+                    <div class="y-right"></div>
+                </div>
+                <div class="y-lists-item" ng-click="goFamily()">
+                    <div class="y-left">
+                        <div class="y-img"><img src="img/mine/mine4.png" alt=""></div>
+                        <div class="y-img-txt">家人管理</div>
+                    </div>
+                    <div class="y-right"></div>
+                </div>
+                <div class="y-lists-item" ui-sref="setting">
+                    <div class="y-left">
+                        <div class="y-img"><img src="img/mine/mine5.png" alt=""></div>
+                        <div class="y-img-txt">设置</div>
+                    </div>
+                    <div class="y-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

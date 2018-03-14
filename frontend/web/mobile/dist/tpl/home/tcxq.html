@@ -1,0 +1,88 @@
+<div ng-controller="homeTcxqCtrl">
+    <div class="y-title y-title-tjzx">
+        <p>产品详情</p>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content tjzx-content">
+        <div class="y-tjzx y-tcxq">
+            <div class="y-t-img">
+                <!--<img src="img/home/tcxq.png" alt="">-->
+                <img ng-src="{{package.package_img}}" alt="">
+            </div>
+            <div class="y-t-title">
+                <div class="y-t-t-item">
+                    <span>{{package.package_name}}</span>
+                </div>
+                <div class="y-t-t-item">
+                    <span>{{package.present_price}}</span>
+                    <span>{{package.original_price}}</span>
+                </div>
+            </div>
+            <div class="y-t-con">
+                <div class="y-t-c-list">
+                    <div class="y-t-c-left">
+                        <span><b>适用性别：</b></span>
+                    </div>
+                    <div class="y-t-c-right">
+                        <span>[{{sex}}]</span>
+                    </div>
+                </div>
+                <div class="y-t-c-list">
+                    <div class="y-t-c-left">
+                        <span><b>适用人群：</b></span>
+                    </div>
+                    <div class="y-t-c-right">
+                        <span>{{package.adapt_people}}</span>
+                    </div>
+                </div>
+                <div class="y-t-c-list">
+                    <div class="y-t-c-left">
+                        <span><b>适用地区：</b></span>
+                    </div>
+                    <div class="y-t-c-right">
+                        <span>{{package.adapt_region}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="y-coupon" ng-if="isHascoupon">
+                <span>体验券</span>
+                <span>{{couponName}}</span>
+            </div>
+            <div class="y-t-lists">
+                <div class="y-t-l-title">
+                    <span><b>体检项目</b></span>
+                </div>
+                <div class="y-t-l-item y-t-l-item-all">
+                    <span style="text-align: center">项目内容</span>
+                    <span style="text-align: center">临床意义</span>
+                    <span>男</span>
+                    <span>女</span>
+                </div>
+                <div class="y-t-l-item" ng-repeat="item in tjList">
+                    <span>{{item.detaills}}</span>
+                    <span ng-bind-html="item.content"></span>
+                    <span class="y-sex" ng-class="item.number==1||item.number==2?'yes':'no'"></span>
+                    <span class="y-sex" ng-class="item.number==1||item.number==3?'yes':'no'"></span>
+                </div>
+            </div>
+            <div class="y-t-change" ng-hide="serveFlag">
+                <div class="y-t-c-tel" ng-click="showTel()">
+                    <img src="img/home/tel.png" alt="">
+                    <span>电话咨询</span>
+                </div>
+                <div class="y-t-c-yy" ng-click="goDdxq()">
+                    <span>立即预约</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--电话咨询-->
+    <div class="y-mask" ng-class="maskShow==true?'active':''"></div>
+    <div class="y-xq-cancel" ng-class="maskShow==true?'active':''">
+        <div class="y-xq-title">{{package.tel}}</div>
+        <div class="y-xq-choose">
+            <span ng-click="cancle()">取消</span>
+            <span ng-click="telTo()">确定</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div ng-controller="homeTcdzCtrl">
+    <div class="y-title">
+        <span>健康问卷调查</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-hospital-items y-gxh y-g-question">
+            <!--问卷3-->
+            <div class="y-g-1">
+                <div class="y-g-1-lists">
+                    <div class="y-g-1-title">
+                        <span>一、女性健康问卷（针对有性生活女性），不是请跳过</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>1、乳腺疾病史（多选）</span>
+                        <span ng-click="quesData.ques17.show=true" ng-bind="quesData.ques17.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>2、您的月经来潮初次年龄是？</span>
+                        <span ng-click="quesData.ques18.show=true" ng-bind="quesData.ques18.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-age">
+                        <span>3、您的绝经年龄是？</span>
+                        <span ng-click="quesData.ques19.show=true" ng-bind="quesData.ques19.result">选择</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-sex y-que">
+                        <span>4、您是否在3个月内做过宫颈刮片或者宫颈TCT检查？</span>
+                        <span ng-click="option.TCT='是'" ng-class="option.TCT=='是'?'active':''">是</span>
+                        <span ng-click="option.TCT='否'" ng-class="option.TCT=='否'?'active':''">否</span>
+                    </div>
+                    <div class="y-g-1-item y-g-1-item-sex y-que1">
+                        <span>5、您是否已经怀孕或者怀疑自己怀孕？</span>
+                        <span ng-click="option.pregnant='是'" ng-class="option.pregnant=='是'?'active':''">是</span>
+                        <span ng-click="option.pregnant='否'" ng-class="option.pregnant=='否'?'active':''">否</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--遮罩层-->
+    <div class="y-mask" ng-class="maskShow==true?'active':''"></div>
+    <!--乳腺疾病史3-->
+    <pie-checkbox1 my-data="quesData.ques17" ng-class="quesData.ques17.show?'active':''"></pie-checkbox1>
+    <!--初潮年龄-->
+    <pie-radio my-data="quesData.ques18" ng-class="quesData.ques18.show?'active':''"></pie-radio>
+    <!--绝经年龄-->
+    <pie-radio my-data="quesData.ques19" ng-class="quesData.ques19.show?'active':''"></pie-radio>
+    <div class="y-g-1-ok y-g-1-ok1">
+        <span ng-click="goTcdz4(0)">不是，跳过</span>
+        <span ng-click="goTcdz4(1)">保存，下一步</span>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

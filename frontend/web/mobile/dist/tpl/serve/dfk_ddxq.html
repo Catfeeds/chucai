@@ -1,0 +1,75 @@
+<!--首页体检商城-订单详情-->
+<div ng-controller="serveDfkXqCtrl">
+    <div class="y-title">
+        <span>确认订单</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-serve-xq">
+            <div class="y-xq-address" ng-click="goChooseAddress()">
+                <div class="y-xq-name">{{dfkDetail.name}}</div>
+                <div class="y-xq-add">
+                    <p>{{dfkDetail.tel}}</p>
+                    <p>{{dfkDetail.full_address}}</p>
+                </div>
+            </div>
+            <div class="y-xq-item">
+                <div class="y-xq-title">{{detailList.institution.name}}</div>
+                <div class="y-xq-con">
+                    <div class="y-xq-pic">
+                        <img src="img/healthy/healthy4.png" alt="">
+                    </div>
+                    <div class="y-xq-text">
+                        <p>{{detailList.package_name}}</p>
+                        <p>实付款：<span>￥{{dfkDetail.price}}</span></p>
+                        <div class="y-xq-count">x1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="y-xq-list-1">
+                <div class="y-xq-item">
+                    <div class="y-key">选择时间</div>
+                    <div class="y-value" ng-click="goChooseData()">{{dfkDetail.exam_time}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">选择体检人</div>
+                    <div class="y-value" ng-click="goChoosePeople()">{{dfkDetail.exam_people}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医服务</div>
+                    <div class="y-value" ng-click="chooseGuideDoctor()">{{guideName}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">给卖家留言</div>
+                    <textarea>{{dfkDetail.message}}</textarea>
+                </div>
+                <div class="y-xq-item" ng-click="goInvoice()">
+                    <div class="y-key">发票信息</div>
+                    <div class="y-value">{{dfkDetail.is_invoice}}</div>
+                </div>
+            </div>
+            <div class="y-xq-list-2">
+                <div class="y-xq-item">
+                    <div class="y-key">商品金额</div>
+                    <div class="y-value">￥{{dfkDetail.price}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">运费</div>
+                    <div class="y-value">￥{{dfkDetail.fare}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">导医</div>
+                    <div class="y-value">￥{{dfkDetail.guide_price}}</div>
+                </div>
+                <div class="y-xq-item">
+                    <div class="y-key">优惠券</div>
+                    <div class="y-value">-0.00</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

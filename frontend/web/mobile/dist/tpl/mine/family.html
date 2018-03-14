@@ -1,0 +1,88 @@
+<div ng-controller="familyCtrl">
+    <div class="y-title" ng-if="showFamilyList">
+        <span>{{title}}</span>
+        <div class="y-back" ng-click="goBack()"></div>
+        <div class="y-right" ng-click="familyAddItem($index)">添加</div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-mine y-mine-family" ng-if="showFamilyList">
+            <div class="y-f-con">
+                <div class="y-f-item" style="margin-bottom: 0.3rem">
+                    <span>家人</span><span>{{familyNum}} 位</span>
+                </div>
+                <div class="y-f-item y-f-item-1" ng-repeat="item in familyList" ng-click="chooseFamily(item.name,item.id,item.sex,item.age,$index)" repeat-finish>
+                    <!--<div class="ischoose"></div>-->
+                    <span style="float: left">{{item.name}}</span><span style="color: #58c0cd">({{item.sex}})</span>
+                    <div class="y-f-change" ng-click="familyChangeItem($index);$event.stopPropagation()"></div>
+                    <div class="y-f-del" ng-click="showDel(true,item.id);$event.stopPropagation()"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mask" ng-if="showMask"></div>
+    <!--删除家人-->
+    <div class="y-xq-cancel" ng-class="showMask==true?'active':''">
+        <div class="y-xq-title">确定删除？</div>
+        <div class="y-xq-choose">
+            <span ng-click="showDel(false)">取消</span>
+            <span ng-click="delFamily()">确定</span>
+        </div>
+    </div>
+
+    <!--修改家人信息-->
+    <div class="scroll-content y-family-change" ng-class="showFamilyChange==true?'active':''" style="margin-top: 0;top: 0">
+        <div class="y-mine y-mine-family">
+            <div class="y-title">
+                <span>修改个人信息</span>
+                <div class="y-back" ng-click="changeGoFamilyList()"></div>
+                <div class="y-right" ng-click="familyChangeDone()">完成</div>
+            </div>
+            <div class="y-family-con">
+                <form>
+                    <div class="y-fa-item y-fa-name1"><span>姓名：</span><input type="text" placeholder="输入姓名" ng-model="needChangeFamily.name" id="change_name"></div>
+                    <div class="y-fa-item y-fa-idCard1"><span>身份证号：</span><input type="text" placeholder="输入身份证号" ng-model="needChangeFamily.id_card" id="change_id_card"></div>
+                    <div class="y-fa-item">
+                        <span>性别：</span>
+                        <span ng-class="changeSex==1?'active':''" ng-click="setChangeSex(1)">男</span>
+                        <span ng-class="changeSex==2?'active':''" ng-click="setChangeSex(2)">女</span>
+                    </div>
+                    <div class="y-fa-item y-fa-age1"><span>年龄：</span><input type="text" placeholder="输入年龄" ng-model="needChangeFamily.age" id="change_age"></div>
+                    <div class="y-fa-item y-fa-tel1"><span>手机号：</span><input type="text" placeholder="输入手机号" ng-model="needChangeFamily.tel" id="change_tel"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--增加家人-->
+    <div class="scroll-content y-family-add" ng-class="showFamilyAdd==true?'active':''" style="margin-top: 0;top: 0">
+        <div class="y-mine y-mine-family">
+            <div class="y-title">
+                <span>完善个人信息</span>
+                <div class="y-back" ng-click="addGoFamilyList()"></div>
+                <div class="y-right" ng-click="familyAddDone()">完成</div>
+            </div>
+            <div class="y-family-con">
+                <form name="addFamilyForm" novalidate="novalidate">
+                    <div class="y-fa-item y-fa-name">
+                        <span>姓名：</span>
+                        <input type="text" placeholder="输入姓名" id="add_name" name="name" ng-model="addFamilyName" required>
+                        <span style="color:red;width: 5rem" ng-show="addFamilyForm.name.$dirty && addFamilyForm.name.$invalid">
+                        <span ng-show="addFamilyForm.name.$error.required">姓名是必须的。</span>
+                    </span>
+                    </div>
+                    <div class="y-fa-item y-fa-idCard">
+                        <span>身份证号：</span>
+                        <input type="text" placeholder="输入身份证号" id="add_id_card">
+                    </div>
+                    <div class="y-fa-item">
+                        <span>性别：</span>
+                        <span ng-class="addSex==1?'active':''" ng-click="setAddSex(1)">男</span>
+                        <span ng-class="addSex==2?'active':''" ng-click="setAddSex(2)">女</span>
+                    </div>
+                    <div class="y-fa-item y-fa-age"><span>年龄：</span><input type="number" placeholder="输入年龄" id="add_age"></div>
+                    <div class="y-fa-item y-fa-tel"><span>手机号：</span><input type="number" placeholder="输入手机号" id="add_tel"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-full-width', 'close-button':true,'limit':1}"></toaster-container>

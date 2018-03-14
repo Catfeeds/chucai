@@ -1,0 +1,49 @@
+<!--个性化定制详情-->
+<div ng-controller="serveDetail4YwcCtrl">
+    <div class="y-title">
+        <span>定金支付</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-hospital-items y-gxh y-g-question y-g-question-done y-serve-xq">
+            <div class="y-g-title">服务信息：个性化体检定制</div>
+            <div class="y-g-list">
+                <div class="y-g-item">就诊人：代用名</div>
+                <div class="y-g-item">体检中心：带定制</div>
+                <div class="y-g-item">门店：带定制</div>
+                <div class="y-g-item">体检日期：带定制</div>
+            </div>
+            <!--<div class="y-g-wj">
+                <span>查看问卷</span>
+                <span></span>
+            </div>-->
+            <div class="y-g-msg">
+                <div class="y-g-m-title">支付信息</div>
+                <div class="y-g-m-pay">
+                    <span>订单定金</span>
+                    <span>￥{{item.deposit}}</span>
+                </div>
+                <div class="y-g-m-pay">
+                    <span>买付定金</span>
+                    <span>￥{{item.deposit}}</span>
+                </div>
+            </div>
+            <div class="y-xq-dzf">
+                <div class="y-xq-txt">已支付：￥{{item.sum_price}}</div>
+                <div class="y-zf-change">
+                    <!--<div class="y-xq-qzf" ng-click="showChangeXq(true)">申请退款</div>-->
+                    <div class="y-xq-qzf" ui-sref="pj({id:item.id})" ng-show="item.is_evaluate==1">去评价</div>
+                    <div class="y-xq-qzf" ng-show="item.is_evaluate==2">已评价</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="y-mask" ng-class="xQIsShow==true?'active':''"></div>
+    <div class="y-xq-cancel" ng-class="xQIsShow==true?'active':''">
+        <div class="y-xq-title">是否确定取消订单</div>
+        <div class="y-xq-choose">
+            <span ng-click="showChangeXq(false)">取消</span>
+            <span ng-click="orderDel()">确定</span>
+        </div>
+    </div>-->
+</div>

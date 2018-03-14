@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>平湖人才信息平台</title>
+  <meta charset="utf-8">
+  <meta name="apple-touch-fullscreen" content="YES">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="pragram" content="no-cache">
+  <meta name="viewport" content="width=750, user-scalable=no">
+  <link rel="stylesheet" href="css/mobile.css">
+  <script src="js/angular.js"></script>
+</head>
+<body class="bg-gary" ng-app="app" ng-controller="ctrl">
+<header class="text-center">
+  平湖人才信息注册
+</header>
+  <form class="text-center">
+    <div class="input-group has-tip">
+      <span class="input-title">姓名：</span>
+      <input type="text" name="name" ng-model="info.name" ng-keyup="vName()" placeholder="请输入姓名" style="width: 500px">
+      <div class="tip red" ng-show="tip.nameShow">{{tip.nameCon}}</div>
+    </div>
+    <div class="input-group">
+      <span class="input-title" style="vertical-align: middle">性别：</span>
+    <label class="radio"><input type="radio" ng-value=1 ng-model="info.sex" name="sex"><span>男</span></label>
+    <label class="radio"><input type="radio" ng-value=2 ng-model="info.sex" name="sex"><span>女</span></label>
+    </div>
+    <div class="input-group">
+      <span class="input-title">出生日期：</span>
+      <input type="date" name="birthday" value="1980-01-01">
+    </div>
+    <div class="input-group">
+      <span class="input-title">国籍：</span>
+      <select class="select-area" ng-model="info.na_id">
+        <option ng-repeat="item in naList" value="{{item.na_id}}">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <span class="input-title">学历：</span>
+      <select class="select-area" ng-model="info.sh_id">
+        <option ng-repeat="item in sgList" value="{{item.sh_id}}">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <span class="input-title">所属区域：</span>
+      <select class="select-area" ng-model="info.dt_id" style="width:504px">
+        <option ng-repeat="item in dtList" value="{{item.dt_id}}">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="input-group has-tip">
+      <span class="input-title">手机号：</span>
+      <input type="tel" name="tel" placeholder="请输入手机号" ng-model="info.mobile" ng-keyup="vMobile()">
+      <div class="tip red" ng-show="tip.mobileShow">{{tip.mobileCon}}</div>
+    </div>
+    <div class="input-group">
+      <span class="input-title">微信号：</span>
+      <input type="text" name="wechat" placeholder="请输入微信号" ng-model="info.wechat">
+    </div>
+    <div class="input-group has-tip">
+      <span class="input-title">邮箱：</span>
+      <input type="text" name="email" placeholder="请输入邮箱" ng-model="info.email" ng-keyup="vEmail()">
+      <div class="tip red" ng-show="tip.emailShow">{{tip.emailCon}}</div>
+    </div>
+    <div class="input-group has-tip">
+      <span class="input-title">固定电话：</span>
+      <input type="number" name="telephone" placeholder="请输入固定电话" ng-model="info.tel" ng-keyup="vTel()">
+      <div class="tip red" ng-show="tip.telShow">{{tip.telCon}}</div>
+    </div>
+
+    <div class="input-group">
+      <span class="input-title">毕业学校：</span>
+      <input type="text" name="school" placeholder="请输入毕业学校" ng-model="info.school">
+    </div>
+    <div class="input-group">
+      <span class="input-title">现工作及职务：</span>
+      <input type="text" name="job" placeholder="请输入现工作及职务" ng-model="info.job">
+    </div>
+    <div class="input-group area">
+      <span class="input-title">现工作(学习)单位地址：</span>
+      <textarea
+        name="job_address"
+        placeholder="请输入现工作(学习)单位地址"
+        ng-model="info.job_address"
+      ></textarea>
+    </div>
+    <div class="input-group area">
+      <span class="input-title">个人学习简历：</span>
+      <textarea
+        name="resume"
+        placeholder="请输入个人学习简历"
+        ng-model="info.resume"
+      ></textarea>
+    </div>
+    <div class="input-group area">
+      <span class="input-title">工作经历：</span>
+      <textarea
+        name="work_history"
+        placeholder="请输入工作经历"
+        ng-model="info.work_history"
+      ></textarea>
+    </div>
+    <div class="input-group area">
+      <span class="input-title">个人专业领域、主要成果等：</span>
+      <textarea
+        name="fruits"
+        placeholder="请输入个人专业领域、主要成果等"
+        ng-model="info.fruits"
+      ></textarea>
+    </div>
+    <div class="input-group area">
+      <span class="input-title">创办公司所属行业、主营业务及规模等：</span>
+      <textarea
+        name="service"
+        placeholder="请输入创办公司所属行业、主营业务及规模等"
+        ng-model="info.service"
+      ></textarea>
+    </div>
+    <button type="submit" class="text-center search" ng-click="register()">注册</button>
+  </form>
+</body>
+</html>
+<script>
+  var re_Width=/^[\u4e00-\u9fa5]{1,10}$|^[\dA-Za-z_]{1,20}$/;//长度正则
+  var re_Email=/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;//邮箱正则
+  var re_Mobile=/^1(3|4|5|7|8)\d{9}$/;//手机正则
+  var re_Tel=/(\(\d{3,4}\)|\d{3,4}-|\s)?\d{8}/;//固话验证
+  var u = navigator.userAgent;
+  var app=angular.module('app',[]);
+  app.controller('ctrl',function ($scope,$http) {
+    $scope.isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    $scope.dtList=[];
+    $scope.naList=[];
+    $scope.sgList=[];
+    $scope.info={//注册信息
+      name:null,//姓名
+      sex:1,//性别 1：男 2：女
+      birthday:new Date("1980-01-01"),//生日
+      na_id:"1",//国籍主键
+      sh_id:"1",//学历主键
+      school:null,//毕业学校
+      job:null,//现工作及职务
+      job_address:null,//现工作(学习)单位地址
+      mobile:null,//手机号码
+      wechat:null,//微信号
+      email:null,//邮箱
+      tel:null,//固定电话
+      resume:null,//个人学习简历
+      work_history:null,//工作经历
+      fruits:null,//个人专业领域、主要成果等
+      service:null,//创办公司所属行业、主营业务及规模等
+      dt_id:"1"//所属区域主键
+    };
+    $scope.tip={
+      allow:{
+        name:false,
+        mobile:false,
+        email:true,
+        tel:true
+      },
+      nameShow:false,
+      nameCon:"姓名长度不能超过10个中文或者20个英文字母",
+      mobileShow:false,
+      mobileCon:"请输入正确的手机号格式",
+      emailShow:false,
+      emailCon:"请输入正确的邮箱格式",
+      telShow:false,
+      telCon:"请输入正确的固定电话格式"
+    };
+//    $scope.info.birthday = new Date("1980-01-01");
+    $http.post("../api/base-api/lables").success(function (msg) {
+      $scope.dtList=msg.data.dtList;
+      $scope.naList=msg.data.naList;
+      $scope.sgList=msg.data.sgList;
+    });
+    //注册
+    $scope.register=function () {
+      if(!$scope.tip.allow.name){
+        alert('请输入正确的姓名');
+        return
+      }
+      if($scope.info.na_id=="default"){
+        alert('请选择国籍');
+        return
+      }
+      if($scope.info.sh_id=="default"){
+        alert('请选择学历');
+        return
+      }
+      if($scope.info.dt_id=="default"){
+        alert('请选择区域');
+        return
+      }
+      if(!$scope.tip.allow.mobile){
+        alert('请输入正确的手机格式');
+        return
+      }
+      if(!$scope.tip.allow.email){
+        alert('请输入正确的邮箱格式');
+        return
+      }
+      if(!$scope.tip.allow.tel){
+        alert('请输入正确的固定电话格式');
+        return
+      }
+      $http({
+        method:'POST',
+        url:"http://palcomm-pool.admin.dev/api/auth-api/apply",
+        headers:{"content-type":"text/json"},
+        data:$scope.info
+      }).success(function (msg) {
+        alert(msg.errmsg);
+        location.reload();
+      });
+    };
+    //名字验证
+    $scope.vName=function () {
+      if(!re_Width.test($scope.info.name)){
+        $scope.tip.nameCon="姓名长度不能超过10个中文或者20个英文字母";
+        $scope.tip.allow.name=false;
+        $scope.tip.nameShow=true;
+      }else {
+        $scope.tip.allow.name=true;
+        $scope.tip.nameShow=false;
+      }
+    };
+    //手机验证
+    $scope.vMobile=function () {
+      if(!re_Mobile.test($scope.info.mobile)){
+        $scope.tip.mobileShow=true;
+        $scope.tip.allow.mobile=false;
+      }else{
+        $scope.tip.mobileShow=false;
+        $scope.tip.allow.mobile=true;
+      }
+    };
+    //邮箱验证
+    $scope.vEmail=function () {
+      if($scope.info.email.length!=0){
+        if(!re_Email.test($scope.info.email)){
+          $scope.tip.emailShow=true;
+          $scope.tip.allow.email=false;
+        }else{
+          $scope.tip.emailShow=false;
+          $scope.tip.allow.email=true;
+        }
+      }else{
+        $scope.tip.emailShow=false;
+        $scope.tip.allow.email=true;
+      }
+    };
+    //固话验证
+    $scope.vTel=function () {
+      if($scope.info.tel.length!=0){
+        if(!re_Tel.test($scope.info.tel)){
+          $scope.tip.telShow=true;
+          $scope.tip.allow.tel=false;
+        }else{
+          $scope.tip.telShow=false;
+          $scope.tip.allow.tel=true;
+        }
+      }else{
+        $scope.tip.telShow=false;
+        $scope.tip.allow.tel=true;
+      }
+    };
+  })
+</script>

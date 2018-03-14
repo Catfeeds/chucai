@@ -1,0 +1,86 @@
+<div ng-controller="addressChooseCtrl">
+    <div class="y-title">
+        <span>收货地址</span>
+        <div class="y-back" ng-click="goBack()"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-address">
+            <div class="y-a-con-add">
+                <div class="y-a-c-a-item">
+                    <span>联系人</span>
+                    <input type="text" placeholder="请输入姓名" id="addName" ng-model="option.consignee">
+                </div>
+                <div class="y-a-c-a-item">
+                    <span>手机号码</span>
+                    <input type="text" placeholder="请输入手机号码" id="addMobile" ng-model="option.mobile">
+                </div>
+                <div class="y-a-c-a-item">
+                    <span>所在地区</span>
+                    <input style="width: 10rem" id="demo1" type="text" readonly placeholder="请选择所在地区" ng-click="pieCity.show=true" ng-model="option.address">
+                    <span class="y-a-c-a-arrow" ng-click="pieCity.show=true"></span>
+
+                </div>
+                <div class="y-a-c-a-item">
+                    <span ng-click="addConfirm()">详细地址</span>
+                    <input type="text" placeholder="请输入详细地址" id="addFull_address" ng-model="option.full_address">
+                </div>
+                <div class="y-a-c-a-ok" ng-click="addAddress()">保存</div>
+            </div>
+        </div>
+        <div class="pie-city" ng-show="pieCity.show">
+            <div class="inner"  ng-click="addConfirm()">
+                <div class="top">
+                    <span class="left" ng-click="addCancel()">取消</span>
+                    <span class="right" ng-click="addConfirm()">确定</span>
+                </div>
+                <div class="content">
+                    <div id="line"></div>
+                    <div class="pie-content">
+                        <ul id="pickP">
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"
+                                ng-repeat="item in rData"
+                                repeat-finish="renderFinishP(0)"
+                                data-pid="{{item.id}}">{{item.name}}</li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                        </ul>
+                    </div>
+                    <div class="pie-content">
+                        <ul id="pickC">
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"
+                                data-cid="{{item.id}}"
+                                ng-repeat="item in pieCity.city"
+                                repeat-finish="renderFinishC(0)"
+                            >{{item.name}}</li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                        </ul>
+                    </div>
+                    <div class="pie-content">
+                        <ul id="pickD">
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"
+                                data-did="{{item.id}}"
+                                ng-repeat="item in pieCity.district"
+                                repeat-finish="renderFinishD()"
+                            >{{item.name}}</li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                            <li class="pie-item"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

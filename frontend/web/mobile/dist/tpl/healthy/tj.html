@@ -1,0 +1,18 @@
+<div class="y-tj-con" ng-controller="healthyTjCtrl">
+    <div ng-repeat="item in newsLists" ng-class="item.images.length==1?'y-news-onepic':'y-news-pics'" ng-click="goToDetail(item.id,item.images[0].img)">
+        <div class="y-news-title">{{item.title}}</div>
+        <div class="y-news-pic">
+            <img ng-repeat="imgItem in item.images" ng-src="{{imgItem.img}}" alt="loading...">
+        </div>
+        <div class="y-news-date">2015-03-11</div>
+    </div>
+    <!--<ul
+        infinite-scroll='lazyLoad()'
+        infinite-scroll-distance='1'
+        infinite-scroll-disabled='busy'
+    >
+        <li ng-repeat="item in demoList track by $index">
+            <h1>{{item}}</h1>
+        </li>
+    </ul>-->
+</div>

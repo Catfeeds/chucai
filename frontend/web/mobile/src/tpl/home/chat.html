@@ -1,0 +1,24 @@
+<div ng-controller="onlineChatCtrl">
+    <div class="y-title">
+        <span>全能医生</span>
+        <div class="y-back" ng-click="goBack()" ui-sref="msg.wdzx"></div>
+    </div>
+    <div class="scroll-content">
+        <div class="y-chat">
+            <div class="y-c-con">
+                <div ng-repeat="item in msgList" class="y-msg-list">
+                    <div ng-class="item.type==1?'y-c-question':'y-c-answer'">{{item.content}}{{item.reply}}<img ng-show="item.img.length!=0" ng-src="{{item.img}}" alt=""></div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="y-chat-send">
+            <input type="text" id="y-content">
+            <span class="y-pic"
+                  ng-change="upload(upimg)" ngf-select
+                  ng-model="upimg" name="file"
+                  ngf-accept="'image/jpg,image/jpeg,image/png,image/bmp'"></span>
+            <span class="y-send" ng-click="submitQuestion()">发送</span>
+        </div>
+    </div>
+</div>

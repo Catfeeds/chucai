@@ -1,0 +1,89 @@
+<div class="scroll-content" style="margin-top: 0;top: 20px">
+    <div class="y-home" ng-controller="homeCtrl">
+        <div class="y-alarm" ng-click="goMsg('home')">
+            <div class="y-alarm-msg" ng-if="isRead"></div>
+        </div>
+        <div class="y-title" ng-show="isScroll">
+            <span>健康6S</span>
+            <div class="y-alarm" ng-click="goMsg('home')" style="top: 1.6rem"></div>
+        </div>
+        <!--<carousel class="y-slide" interval="myInterval">
+            <slide ng-repeat="item in bannerList"  active="slide.active">
+                <img class="banner-img img-full" ng-src="{{item.images}}" ng-click="slide.link?link(slide.link):''">
+            </slide>
+        </carousel>-->
+        <div set-ng-animate="false">
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in bannerList">
+                    <img class="banner-img img-full" ng-src="{{slide.images}}">
+                </slide>
+            </carousel>
+        </div>
+        <div class="y-sort">
+            <div class="y-s-item" ng-click="goTjyy()">
+                <img src="img/home/sort1.png" alt="">
+                <span>体检预约</span>
+            </div>
+            <div class="y-s-item" ui-sref="tjsc">
+                <img src="img/home/sort2.png" alt="">
+                <span>体检商城</span>
+            </div>
+            <div class="y-s-item" ng-click="goGxh()">
+                <img src="img/home/sort3.png" alt="">
+                <span>个性化体检</span>
+            </div>
+        </div>
+        <div class="y-green">
+            <div class="y-g-title">
+                <span><b>绿色通道</b></span>
+            </div>
+            <div class="y-sort">
+                <div class="y-s-item" ng-click="goChooseFamily()">
+                    <img src="img/home/green1.png" alt="">
+                    <span>门诊预约</span>
+                </div>
+                <div class="y-s-item" ng-click="goChooseFamily1()">
+                    <img src="img/home/green2.png" alt="">
+                    <span>住院安排</span>
+                </div>
+                <div class="y-s-item" ng-click="goChooseFamily2()">
+                    <img src="img/home/green3.png" alt="">
+                    <span>手术安排</span>
+                </div>
+            </div>
+        </div>
+        <div class="y-online" ng-click="goQuestion()">
+            <div class="y-o-title">
+                <span><b>在线咨询</b></span>
+            </div>
+            <div class="y-o-text">
+                <div class="y-o-txt">
+                    <span>全能医生为您解答</span>
+                    <span>每天3000个问题被解答</span>
+                </div>
+                <div class="y-o-pic">
+                    <img src="img/home/online.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="y-hospital y-online">
+            <div class="y-o-title">
+                <span><b>药店推荐</b></span>
+                <span ui-sref="hospital">查看更多</span>
+                <div class="y-h-right" ui-sref="hospital"></div>
+            </div>
+            <div class="y-h-items">
+                <div class="y-h-item y-o-text" ng-repeat="item in pharmacyRecommend">
+                    <div class="y-o-txt y-h-i-text">
+                        <span style="margin-bottom: 0.2rem">{{item.store_name}}</span>
+                        <span style="margin-bottom: 0.2rem">{{item.address}}</span>
+                        <span>{{item.tel}}</span>
+                    </div>
+                    <div class="y-h-i-pic y-o-pic">
+                        <img ng-src="{{item.images}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
